@@ -20,9 +20,11 @@ $requiredFiles = @(
     'assets/site.css',
     'assets/favicon.svg',
     'assets/fonts/bricolage-grotesque-latin-var.woff2',
+    'assets/fonts/OFL-Bricolage-Grotesque.txt',
     'assets/fonts/ibm-plex-mono-400-latin.woff2',
     'assets/fonts/ibm-plex-mono-500-latin.woff2',
-    'assets/fonts/ibm-plex-mono-600-latin.woff2'
+    'assets/fonts/ibm-plex-mono-600-latin.woff2',
+    'assets/fonts/OFL-IBM-Plex-Mono.txt'
 )
 
 foreach ($relativePath in $requiredFiles) {
@@ -37,6 +39,7 @@ if (Test-Path -LiteralPath $indexPath) {
     $html = Get-Content -LiteralPath $indexPath -Raw
     Assert-True ([regex]::Matches($html, '<h1(?:\s|>)', 'IgnoreCase').Count -eq 1) 'index.html must contain exactly one H1'
     Assert-True ($html -match '<html\s+lang="en"') 'Document language must be declared'
+    Assert-True ($html -match '<title>Allusions · Independent Software</title>') 'Document title is incorrect'
     Assert-True ($html -match 'class="skip-link"\s+href="#main"') 'Skip link must target main content'
     Assert-True ($html -match '<nav[^>]+aria-label=') 'Navigation must have an accessible name'
     Assert-True ($html -match '<main\s+id="main"') 'Main landmark must be present and targetable'
@@ -45,15 +48,30 @@ if (Test-Path -LiteralPath $indexPath) {
     Assert-True ($html -match '>Standard<') 'Standard navigation label is missing'
     Assert-True ($html -match '>GitHub<') 'GitHub navigation label is missing'
     Assert-True ($html -match 'Software that takes responsibility for the machinery\.') 'Approved hero copy is missing'
-    Assert-True ($html -match 'AFK AI' -and $html -match 'Adaptive Media' -and $html -match 'ValClips') 'Project register is incomplete'
+    Assert-True ($html -match 'AFK AI' -and $html -match 'DemiMedia' -and $html -match 'ValClips') 'Project register is incomplete'
     Assert-True ($html -match '>Beta<' -and ([regex]::Matches($html, '>In development<').Count -eq 2)) 'Project statuses are incorrect'
     Assert-True ($html -match 'https://localai-windows-starter-site\.allusionsafk\.workers\.dev/') 'AFK destination is incorrect'
-    Assert-True ($html -match 'https://github\.com/allusionsafk/adaptive-media') 'Adaptive Media destination is incorrect'
+    Assert-True ($html -match 'https://github\.com/allusionsafk/adaptive-media') 'DemiMedia destination is incorrect'
+    Assert-True ($html -notmatch 'Adaptive Media|Demi Player|Allusions — Independent software studio') 'Stale public identity text remains in index.html'
     Assert-True ($html -notmatch '(?i)friend beta') 'Retired Friend Beta terminology must not appear'
     Assert-True ($html -notmatch '<script(?:\s|>)') 'JavaScript is not permitted in the production candidate'
     Assert-True ($html -notmatch '\sstyle=') 'Inline styles are forbidden by CSP'
     Assert-True ($html -notmatch '(?i)(?:src|href)="https?://[^\"]+\.(?:js|css|woff2?|ttf|otf)') 'Remote executable or font assets are forbidden'
     Assert-True ($html -match '<link\s+rel="icon"\s+href="assets/favicon\.svg"') 'Self-hosted favicon link is missing'
+}
+
+$bricolageLicensePath = Join-Path $siteRoot 'assets/fonts/OFL-Bricolage-Grotesque.txt'
+if (Test-Path -LiteralPath $bricolageLicensePath) {
+    $bricolageLicense = Get-Content -LiteralPath $bricolageLicensePath -Raw
+    Assert-True ($bricolageLicense -match 'Copyright 2022 The Bricolage Grotesque Project Authors \(https://github\.com/ateliertriay/bricolage\)') 'Bricolage Grotesque upstream copyright notice is missing'
+    Assert-True ($bricolageLicense -match 'SIL OPEN FONT LICENSE Version 1\.1 - 26 February 2007') 'Bricolage Grotesque OFL 1.1 text is missing'
+}
+
+$plexLicensePath = Join-Path $siteRoot 'assets/fonts/OFL-IBM-Plex-Mono.txt'
+if (Test-Path -LiteralPath $plexLicensePath) {
+    $plexLicense = Get-Content -LiteralPath $plexLicensePath -Raw
+    Assert-True ($plexLicense -match 'Copyright © 2017 IBM Corp\. with Reserved Font Name "Plex"') 'IBM Plex Mono upstream copyright notice is missing'
+    Assert-True ($plexLicense -match 'SIL OPEN FONT LICENSE Version 1\.1 - 26 February 2007') 'IBM Plex Mono OFL 1.1 text is missing'
 }
 
 if (Test-Path -LiteralPath $cssPath) {

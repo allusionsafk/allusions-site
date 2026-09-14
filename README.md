@@ -6,7 +6,7 @@ Static production candidate for the Allusions studio homepage.
 
 - semantic HTML and CSS only;
 - no JavaScript, build step, package manager, analytics, or remote assets;
-- self-hosted Bricolage Grotesque and IBM Plex Mono font files;
+- self-hosted Bricolage Grotesque and IBM Plex Mono font files, with their upstream SIL Open Font License 1.1 notices bundled alongside them;
 - deployment headers in `_headers`, including a default-deny Content Security Policy.
 
 ## Local preview

@@ -15,7 +15,7 @@ People encountering one Allusions product who want to understand the maker behin
 ## Product truth
 
 - AFK AI is in Beta and its product site is the authority for downloads and exact release information.
-- Adaptive Media is in development and its public repository is the authority for current engineering status.
+- DemiMedia is in development and its public repository is the authority for current engineering status.
 - ValClips is in private development and has no public product surface, repository link, or download.
 - The studio site is not itself a product release channel.
 
