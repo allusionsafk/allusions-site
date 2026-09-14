@@ -1,0 +1,75 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-09-14T10:47:53.6908449-04:00",
+  "title": "Design System: Allusions studio site",
+  "extensions": {
+    "colorMeta": {
+      "ground": { "role": "neutral", "displayName": "Warm Ground", "canonical": "oklch(94.9% 0.012 81)", "tonalRamp": ["oklch(15% 0.012 81)", "oklch(27% 0.012 81)", "oklch(39% 0.012 81)", "oklch(51% 0.012 81)", "oklch(63% 0.012 81)", "oklch(75% 0.012 81)", "oklch(87% 0.012 81)", "oklch(95% 0.012 81)"] },
+      "accent-rust": { "role": "primary", "displayName": "Rust Signal", "canonical": "oklch(45% 0.115 38)", "tonalRamp": ["oklch(15% 0.115 38)", "oklch(27% 0.115 38)", "oklch(39% 0.115 38)", "oklch(51% 0.115 38)", "oklch(63% 0.115 38)", "oklch(75% 0.115 38)", "oklch(87% 0.115 38)", "oklch(95% 0.115 38)"] },
+      "night": { "role": "neutral", "displayName": "Night Field", "canonical": "oklch(18% 0.009 52)", "tonalRamp": ["oklch(15% 0.009 52)", "oklch(27% 0.009 52)", "oklch(39% 0.009 52)", "oklch(51% 0.009 52)", "oklch(63% 0.009 52)", "oklch(75% 0.009 52)", "oklch(87% 0.009 52)", "oklch(95% 0.009 52)"] }
+    },
+    "typographyMeta": {
+      "display": { "displayName": "Display", "purpose": "Hero, project names, and the Standard statement." },
+      "body": { "displayName": "Body", "purpose": "Direct explanations and project descriptions." },
+      "evidence": { "displayName": "Evidence", "purpose": "Status, sequence, indexing, and proof only." }
+    },
+    "shadows": [],
+    "motion": [
+      { "name": "reduced-motion", "value": "0.01ms", "purpose": "Removes transitions and repeated animation when reduced motion is requested." }
+    ],
+    "breakpoints": [
+      { "name": "register-collapse", "value": "820px" },
+      { "name": "mobile", "value": "520px" }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary navigation",
+      "kind": "nav",
+      "description": "Compact text navigation with generous keyboard targets.",
+      "html": "<nav class=\"ds-nav\"><a href=\"#projects\">Projects</a><a href=\"#standard\">Standard</a></nav>",
+      "css": ".ds-nav { display:flex; gap:1.25rem; } .ds-nav a { display:inline-flex; min-height:44px; align-items:center; color:var(--ink); font:650 .88rem system-ui; text-underline-offset:.28em; } .ds-nav a:hover { color:var(--accent); } .ds-nav a:focus-visible { outline:3px solid var(--accent); outline-offset:4px; }"
+    },
+    {
+      "name": "Status label",
+      "kind": "chip",
+      "description": "Explicit product maturity in a compact evidence pill.",
+      "html": "<span class=\"ds-status\">In development</span>",
+      "css": ".ds-status { display:inline-flex; min-height:2rem; align-items:center; padding:0 .65rem; border:1px solid var(--ink); border-radius:999px; color:var(--ink); font:600 .72rem 'IBM Plex Mono',monospace; letter-spacing:.075em; text-transform:uppercase; }"
+    },
+    {
+      "name": "Project destination",
+      "kind": "button",
+      "description": "A text-first destination link with rust underline detail.",
+      "html": "<a class=\"ds-project-link\" href=\"#\">Visit the product site</a>",
+      "css": ".ds-project-link { display:inline-flex; min-height:44px; align-items:center; color:var(--ink); font:700 .91rem system-ui; text-decoration-color:var(--accent); text-underline-offset:.28em; } .ds-project-link:hover { color:var(--accent); } .ds-project-link:focus-visible { outline:3px solid var(--accent); outline-offset:4px; }"
+    },
+    {
+      "name": "Project register row",
+      "kind": "custom",
+      "description": "An asymmetric ruled row for role, state, evidence, and destination.",
+      "html": "<article class=\"ds-project\"><span>01 / AFK</span><div><h3>AFK AI</h3><p>Local AI for Windows.</p></div><strong>Beta</strong></article>",
+      "css": ".ds-project { display:grid; grid-template-columns:6rem 1fr 15rem; gap:2rem; padding:2.5rem 0; border-bottom:1px solid var(--rule); color:var(--ink); } .ds-project h3 { margin:0; font:520 4rem/.94 'Bricolage Grotesque',sans-serif; letter-spacing:-.038em; } .ds-project p { margin:.6rem 0 0; }"
+    },
+    {
+      "name": "Standard principle",
+      "kind": "custom",
+      "description": "A dark ruled row pairing a sequence number with a responsibility principle.",
+      "html": "<div class=\"ds-principle\"><span>01</span><p><strong>Observe first.</strong> Measure before acting.</p></div>",
+      "css": ".ds-principle { display:grid; grid-template-columns:3rem 1fr; gap:1rem; padding:1.5rem 0; border-bottom:1px solid var(--night-rule); background:var(--night); color:var(--night-muted); } .ds-principle span { font:400 .72rem 'IBM Plex Mono',monospace; } .ds-principle p { margin:0; } .ds-principle strong { color:var(--night-ink); font-family:'Bricolage Grotesque',sans-serif; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Responsible Register",
+    "overview": "The site feels like a maker's register enlarged to architectural scale: warm stock, precise rules, oversized grotesque lettering, and machine-readable evidence. Its confidence comes from hierarchy and factual restraint rather than decoration. One near-black section interrupts the page to make the studio standard feel structural, not promotional.",
+    "keyCharacteristics": ["An oversized but controlled ALLUSIONS wordmark.", "A strongly asymmetric project register with visible status and evidence.", "Rust used sparingly for focus, link detail, and directional notation.", "One dark Standard section as the only high-contrast reversal.", "Flat surfaces separated by rules; no cards or decorative shadows."],
+    "rules": [
+      { "name": "The One Reversal Rule", "body": "The Standard section is the only dark surface on the homepage.", "section": "colors" },
+      { "name": "The Evidence Accent Rule", "body": "Rust indicates focus, direction, or interaction; it does not decorate large surfaces.", "section": "colors" },
+      { "name": "The Machinery Speaks Mono Rule", "body": "Only state, sequence, and evidence use monospace.", "section": "typography" },
+      { "name": "The Rule-Built Depth Rule", "body": "Use line weight and spatial rhythm, never cards or shadows, to separate information.", "section": "elevation" }
+    ],
+    "dos": ["Do preserve the asymmetric register and the single dark reversal.", "Do keep status text explicit and product destinations authoritative.", "Do use strong rules, restrained rust, and visible focus states.", "Do keep all runtime assets self-hosted."],
+    "donts": ["Don't turn projects into equal cards or add dashboard chrome.", "Don't introduce gradients, decorative shadows, remote assets, or third-party scripts.", "Don't use monospace for ordinary prose.", "Don't add unverified downloads, release claims, or private repository links."]
+  }
+}
