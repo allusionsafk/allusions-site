@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="DemiMedia is a Windows film player in development: the picture leads, you choose the result you want, and it shows what it planned and what the player actually did.">
+  <link rel="canonical" href="https://allusions-site.pages.dev/demimedia/">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="DemiMedia · a Windows film player">
+  <meta property="og:description" content="The picture leads. You choose the result you want, and DemiMedia shows what it planned and what the player actually did.">
+  <meta property="og:url" content="https://allusions-site.pages.dev/demimedia/">
+  <meta name="twitter:card" content="summary">
+  <meta name="theme-color" content="#101417">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'self'; font-src 'self'; img-src 'self'; connect-src 'none'; media-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'">
+  <title>DemiMedia · a Windows film player</title>
+  <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/demimedia/demimedia.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="bar">
+    <div class="wrap bar-row">
+      <p class="name"><a href="/demimedia/">DemiMedia</a> <span>by <a href="/">ALLUSIONS</a></span></p>
+      <nav aria-label="DemiMedia sections">
+        <a href="#choose">Choosing a look</a>
+        <a href="#details">Playback details</a>
+        <a href="#status">Status</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="open" aria-labelledby="open-title">
+      <div class="wrap open-copy">
+        <h1 id="open-title">Let the picture lead.</h1>
+        <p class="lede">DemiMedia is a Windows film player built so the picture leads. You choose the result you want; it plans how to get there on your hardware, and it keeps the details one step away.</p>
+        <p class="state">In development · no release yet · <a href="https://github.com/allusionsafk/adaptive-media">Follow it on GitHub</a></p>
+      </div>
+      <figure class="screen screen-open">
+        <picture>
+          <source media="(max-width: 39.99rem)" srcset="/demimedia/captures/dm-idle-phone.webp" width="760" height="288">
+          <img src="/demimedia/captures/dm-idle-1600.webp" srcset="/demimedia/captures/dm-idle-800.webp 800w, /demimedia/captures/dm-idle-1600.webp 1600w" sizes="(min-width: 90rem) 84rem, 94vw" width="1600" height="386" alt="The DemiMedia start screen: Open a film. The rest can wait., with Open file, Open folder and Open URL buttons and a drop area that says It plays from this PC." fetchpriority="high">
+        </picture>
+        <figcaption>The start screen, captured 23 Sep 2026 from build <span class="machine">90e0a87</span>, merged to main as <span class="machine">96da0de</span> on 24 Sep.</figcaption>
+      </figure>
+    </section>
+
+    <section class="chapter" id="choose" aria-labelledby="choose-title">
+      <div class="wrap chapter-grid">
+        <div class="chapter-copy">
+          <h2 id="choose-title">Choose the result, not the settings.</h2>
+          <p>Pick what you want from the picture: preserve the original look, improve detail, make motion smoother, clean up compression and banding, or a balanced improvement. Then say how strong, and whether to favour efficiency or quality.</p>
+          <p>There are four starting points: Automatic, Reference, Enhanced and Compatibility. The implementation parameters stay one level deeper.</p>
+        </div>
+        <figure class="screen">
+          <picture>
+            <source media="(max-width: 39.99rem)" srcset="/demimedia/captures/dm-choices-phone.webp" width="760" height="230">
+            <img src="/demimedia/captures/dm-choices-1600.webp" srcset="/demimedia/captures/dm-choices-800.webp 800w, /demimedia/captures/dm-choices-1600.webp 1600w" sizes="(min-width: 64rem) 62vw, 94vw" width="1600" height="1146" alt="DemiMedia's picture choices: Automatic selected, a list of outcomes with Balanced improvement chosen, Strength set to Normal, Performance set to Balanced, and below it The plan explaining each decision in a sentence." loading="lazy" decoding="async">
+          </picture>
+          <figcaption>Outcome choices and the plan they produce, each decision explained in a sentence.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="chapter chapter-reverse" aria-labelledby="plan-title">
+      <div class="wrap chapter-grid">
+        <div class="chapter-copy">
+          <h2 id="plan-title">See the plan before you press Play.</h2>
+          <p>Before anything plays, DemiMedia reads the file and shows what it found and what it intends to do: the scaling it chose, whether motion is left alone, what audio path it will use, and why.</p>
+          <p>Nothing is marked as observed until the player has actually reported it.</p>
+        </div>
+        <figure class="screen">
+          <picture>
+            <source media="(max-width: 39.99rem)" srcset="/demimedia/captures/dm-plan-phone.webp" width="588" height="1000">
+            <img src="/demimedia/captures/dm-plan-1600.webp" srcset="/demimedia/captures/dm-plan-800.webp 800w, /demimedia/captures/dm-plan-1600.webp 1600w" sizes="(min-width: 64rem) 62vw, 94vw" width="1600" height="1086" alt="A generated test clip, Harbour Lights, ready to play: Play button, Enhanced choices, and the Playback details panel listing the source picture, codec, dynamic range and colour, then the plan with one sentence of reasoning per decision." loading="lazy" decoding="async">
+          </picture>
+          <figcaption>A generated test clip, ready to play, with Playback details open. The file path is covered.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="details" id="details" aria-labelledby="details-title">
+      <div class="wrap">
+        <div class="details-head">
+          <h2 id="details-title">While it plays, the detail stays one step away.</h2>
+          <p>Healthy playback is quiet: no badges, no logs, no controls you did not ask for. Open Playback details and each question gets its own answer.</p>
+        </div>
+      </div>
+      <figure class="screen screen-wide">
+        <picture>
+          <source media="(max-width: 39.99rem)" srcset="/demimedia/captures/dm-player-details-phone.webp" width="604" height="1060">
+          <img src="/demimedia/captures/dm-player-details-1600.webp" srcset="/demimedia/captures/dm-player-details-800.webp 800w, /demimedia/captures/dm-player-details-1600.webp 1600w" sizes="(min-width: 90rem) 84rem, 94vw" width="1600" height="900" alt="DemiMedia playing a generated colour-bar test clip with subtitles, the transport bar at the bottom and the Playback details panel open on the right, listing Source, Requested, Planned, Observed and Health: Healthy." loading="lazy" decoding="async">
+        </picture>
+        <figcaption>A generated colour-bar test clip playing, 23 Sep 2026. On a phone, the details panel from the same frame.</figcaption>
+      </figure>
+      <div class="wrap">
+        <dl class="truth">
+          <div><dt>Requested</dt><dd>What you asked for.</dd></div>
+          <div><dt>Planned</dt><dd>What DemiMedia decided to do on this file, display and hardware.</dd></div>
+          <div><dt>Observed</dt><dd>What the player actually reported, shown only once it has reported it.</dd></div>
+          <div><dt>Health</dt><dd>Whether playback is keeping up, and what changed if it is not.</dd></div>
+        </dl>
+      </div>
+    </section>
+
+
+    <section class="claims" aria-labelledby="claims-title">
+      <div class="wrap claims-grid">
+        <h2 id="claims-title">What it does, and what it does not claim</h2>
+        <div class="claims-cols">
+          <div>
+            <h3>Does</h3>
+            <ul>
+              <li>Plays through mpv, libplacebo and FFmpeg, with MPC-BE as a compatibility fallback.</li>
+              <li>Uses hardware decoding on paths where it is supported.</li>
+              <li>Keeps decoded PCM as the safe audio default; HDMI bitstream is optional.</li>
+              <li>Offers NVIDIA RTX Video Super Resolution and RTX Video HDR as explicit choices where the hardware supports them, never switched on silently.</li>
+              <li>Converts Dolby Vision Profile 7 files to Profile 8.1 for compatibility where supported, with bounded temporary space.</li>
+            </ul>
+          </div>
+          <div>
+            <h3>Does not claim</h3>
+            <ul>
+              <li>Universal Dolby Vision or HDR support on every display.</li>
+              <li>Native Profile 7 enhancement-layer passthrough.</li>
+              <li>AI frame generation. Smoother motion blends real frames.</li>
+              <li>That a requested enhancement was delivered before the player reports it.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="status" id="status" aria-labelledby="status-title">
+      <div class="wrap status-grid">
+        <h2 id="status-title">Status</h2>
+        <dl class="facts">
+          <div><dt>Stage</dt><dd>In active development. The interface on this page is on <span class="machine">main</span>; there is no DemiMedia release yet.</dd></div>
+          <div><dt>Runs on</dt><dd>Windows 11</dd></div>
+          <div><dt>Earlier builds</dt><dd>Published under the project's former name, Adaptive Media. They are history, not a DemiMedia download.</dd></div>
+          <div><dt>Follow</dt><dd><a href="https://github.com/allusionsafk/adaptive-media">allusionsafk/adaptive-media on GitHub</a></dd></div>
+        </dl>
+      </div>
+    </section>
+  </main>
+
+  <footer class="foot">
+    <div class="wrap foot-row">
+      <p>DemiMedia · status as of 24 September 2026 · <a href="/demimedia/captures/PROVENANCE.md">How these captures were made</a></p>
+      <p>Independent software by Jidan, published by <a href="/">ALLUSIONS</a></p>
+    </div>
+  </footer>
+</body>
+</html>

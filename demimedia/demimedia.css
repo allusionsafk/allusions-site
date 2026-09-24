@@ -1,0 +1,498 @@
+/*
+ * DemiMedia product page: cinematic, media-first, quiet.
+ * The screen is the largest thing in every chapter; the words are set lightly around it.
+ * Palette from the app: ground, canvas, ink, supporting ink, separators, light-blue focus.
+ * Fonts are the studio's self-hosted files (OFL 1.1).
+ */
+
+@font-face {
+  font-family: "Bricolage Grotesque";
+  src: url("/assets/fonts/bricolage-grotesque-latin-var.woff2") format("woff2");
+  font-style: normal;
+  font-weight: 400 800;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "IBM Plex Mono";
+  src: url("/assets/fonts/ibm-plex-mono-400-latin.woff2") format("woff2");
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+
+:root {
+  color-scheme: dark;
+  --ground: #101417;
+  --canvas: #080b0d;
+  --ink: #edf0f1;
+  --support: #b3bdc2;
+  --separator: #3e494f;
+  --focus: #a9d3eb;
+
+  --display: "Bricolage Grotesque", "Segoe UI Variable Display", "Segoe UI", system-ui, sans-serif;
+  --text: "Segoe UI Variable Text", "Segoe UI", system-ui, -apple-system, "Helvetica Neue", sans-serif;
+  --machine: "IBM Plex Mono", "Cascadia Mono", Consolas, monospace;
+
+  --gutter: clamp(1.25rem, 3vw, 3rem);
+  --wrap: 84rem;
+  --measure: 34rem;
+  --chapter: clamp(4rem, 9vw, 8rem);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  scrollbar-color: var(--separator) var(--ground);
+}
+
+body {
+  margin: 0;
+  background: var(--ground);
+  color: var(--ink);
+  font-family: var(--text);
+  font-size: 1.0625rem;
+  line-height: 1.65;
+}
+
+::selection {
+  background: var(--focus);
+  color: var(--canvas);
+}
+
+h1,
+h2,
+h3,
+p,
+dl,
+dd,
+ul,
+figure {
+  margin: 0;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+a {
+  color: inherit;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.22em;
+  text-decoration-color: var(--support);
+}
+
+a:hover {
+  text-decoration-color: var(--ink);
+}
+
+:focus-visible {
+  outline: 2px solid var(--focus);
+  outline-offset: 3px;
+}
+
+.wrap {
+  width: min(100% - 2 * var(--gutter), var(--wrap));
+  margin-inline: auto;
+}
+
+.machine {
+  font-family: var(--machine);
+  font-size: 0.86em;
+  font-variant-numeric: tabular-nums;
+}
+
+.skip-link {
+  position: absolute;
+  left: var(--gutter);
+  top: 0.5rem;
+  z-index: 10;
+  padding: 0.6rem 1rem;
+  background: var(--ink);
+  color: var(--canvas);
+  border-radius: 4px;
+  transform: translateY(-200%);
+}
+
+.skip-link:focus-visible {
+  transform: none;
+}
+
+/* Quiet top chrome, like the player's. */
+.bar {
+  border-bottom: 1px solid var(--separator);
+}
+
+.bar-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0 2rem;
+  min-height: 4rem;
+}
+
+.name {
+  display: flex;
+  align-items: baseline;
+  gap: 0.6rem;
+}
+
+.name > a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  font-family: var(--display);
+  font-weight: 600;
+  font-size: 1.3rem;
+  letter-spacing: -0.01em;
+  text-decoration: none;
+}
+
+.name span {
+  color: var(--support);
+  font-size: 0.9375rem;
+}
+
+.bar nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0 1.5rem;
+}
+
+.bar nav a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  color: var(--support);
+  font-size: 0.9375rem;
+  text-decoration: none;
+}
+
+.bar nav a:hover {
+  color: var(--ink);
+}
+
+@media (max-width: 47.99rem) {
+  /* Phones keep the section links; they wrap under the name. */
+  .bar-row {
+    padding-block: 0.25rem;
+  }
+  .bar nav {
+    gap: 0 1.25rem;
+  }
+}
+
+/* A screen is a real capture set on the viewing canvas. */
+.screen {
+  display: grid;
+  gap: 0.85rem;
+  min-width: 0;
+}
+
+.screen picture {
+  display: block;
+  min-width: 0;
+}
+
+.screen img {
+  width: 100%;
+  background: var(--canvas);
+  padding: clamp(0.5rem, 1.6vw, 1.25rem);
+  border-radius: 6px;
+}
+
+.screen figcaption {
+  max-width: var(--measure);
+  color: var(--support);
+  font-size: 0.875rem;
+  line-height: 1.5;
+  text-wrap: pretty;
+}
+
+/* Opening: the words small and light, the screen large. ------------ */
+
+.open {
+  padding-block: clamp(2.25rem, 5vw, 4rem) var(--chapter);
+}
+
+.open-copy {
+  display: grid;
+  gap: 1rem;
+  margin-bottom: clamp(1.75rem, 4vw, 3rem);
+}
+
+.open-copy > * {
+  max-width: 44rem;
+}
+
+h1 {
+  font-family: var(--display);
+  font-weight: 400;
+  font-size: clamp(2.6rem, 6.4vw, 5.5rem);
+  line-height: 1;
+  letter-spacing: -0.035em;
+  text-wrap: balance;
+}
+
+.lede {
+  max-width: 40rem;
+  color: var(--support);
+  font-size: clamp(1.1rem, 1.6vw, 1.3rem);
+  line-height: 1.55;
+  text-wrap: pretty;
+}
+
+.state {
+  color: var(--support);
+  font-size: 0.9375rem;
+}
+
+.state a {
+  color: var(--ink);
+}
+
+.screen-open,
+.screen-wide {
+  width: min(100% - 2 * var(--gutter), var(--wrap));
+  margin-inline: auto;
+}
+
+/* Chapters: one screen, a few lines. ------------------------------- */
+
+.chapter,
+.details,
+.claims,
+.status {
+  padding-block: var(--chapter);
+  border-top: 1px solid var(--separator);
+}
+
+h2 {
+  font-family: var(--display);
+  font-weight: 420;
+  font-size: clamp(2rem, 3.8vw, 3.1rem);
+  line-height: 1.04;
+  letter-spacing: -0.03em;
+  text-wrap: balance;
+}
+
+h3 {
+  font-size: 1.0625rem;
+  font-weight: 600;
+}
+
+.chapter-grid {
+  display: grid;
+  gap: 2rem;
+}
+
+.chapter-copy {
+  display: grid;
+  gap: 1rem;
+  align-content: center;
+  max-width: var(--measure);
+}
+
+.chapter-copy p {
+  color: var(--support);
+  text-wrap: pretty;
+}
+
+.chapter-copy .note {
+  padding-top: 1rem;
+  border-top: 1px solid var(--separator);
+  font-size: 0.9375rem;
+}
+
+@media (min-width: 64rem) {
+  .chapter-grid {
+    grid-template-columns: minmax(0, 4fr) minmax(0, 8fr);
+    column-gap: clamp(2rem, 4vw, 4.5rem);
+  }
+
+  .chapter-reverse .chapter-copy {
+    order: 2;
+  }
+
+  .chapter-reverse .chapter-grid {
+    grid-template-columns: minmax(0, 8fr) minmax(0, 4fr);
+  }
+}
+
+/* Playback details: the widest screen on the page, then the four answers. */
+.details-head {
+  display: grid;
+  gap: 1rem;
+  max-width: 44rem;
+  margin-bottom: clamp(2rem, 4vw, 3rem);
+}
+
+.details-head p {
+  color: var(--support);
+  text-wrap: pretty;
+}
+
+.truth {
+  display: grid;
+  gap: 1.5rem;
+  margin-top: clamp(2rem, 4vw, 3rem);
+}
+
+.truth div {
+  display: grid;
+  gap: 0.35rem;
+  align-content: start;
+  padding-top: 0.9rem;
+  border-top: 1px solid var(--support);
+}
+
+.truth dt {
+  font-weight: 600;
+}
+
+.truth dd {
+  color: var(--support);
+  text-wrap: pretty;
+}
+
+@media (min-width: 48rem) {
+  .truth {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    column-gap: clamp(1rem, 2.5vw, 2rem);
+  }
+}
+
+/* Claims and status: plain lists on the ground. -------------------- */
+
+.claims-grid,
+.status-grid {
+  display: grid;
+  gap: 2rem;
+}
+
+.claims-cols {
+  display: grid;
+  gap: 2rem;
+}
+
+.claims ul {
+  list-style: none;
+  padding: 0;
+  display: grid;
+  gap: 0.75rem;
+  margin-top: 0.85rem;
+}
+
+.claims li {
+  padding-top: 0.75rem;
+  border-top: 1px solid var(--separator);
+  color: var(--support);
+  text-wrap: pretty;
+}
+
+@media (min-width: 48rem) {
+  .claims-cols {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: clamp(1.5rem, 3vw, 3rem);
+  }
+}
+
+@media (min-width: 64rem) {
+  .claims-grid,
+  .status-grid {
+    grid-template-columns: minmax(0, 4fr) minmax(0, 8fr);
+    column-gap: clamp(2rem, 4vw, 4.5rem);
+  }
+}
+
+.facts {
+  display: grid;
+  border-top: 1px solid var(--separator);
+}
+
+.facts div {
+  display: grid;
+  gap: 0.2rem;
+  padding-block: 0.9rem;
+  border-bottom: 1px solid var(--separator);
+}
+
+.facts dt {
+  font-weight: 600;
+}
+
+.facts dd {
+  color: var(--support);
+  text-wrap: pretty;
+}
+
+.facts dd a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  color: var(--ink);
+}
+
+@media (min-width: 40rem) {
+  .facts div {
+    grid-template-columns: 9rem 1fr;
+    column-gap: 1.5rem;
+    align-items: baseline;
+  }
+}
+
+/* Footer ------------------------------------------------------------ */
+
+.foot {
+  padding-block: 2rem;
+  border-top: 1px solid var(--separator);
+  color: var(--support);
+  font-size: 0.9375rem;
+}
+
+.foot-row {
+  display: grid;
+  gap: 0.5rem;
+}
+
+.foot a {
+  color: var(--ink);
+}
+
+@media (min-width: 56rem) {
+  .foot-row {
+    grid-template-columns: 1fr auto;
+    align-items: center;
+  }
+}
+
+/* Motion: the opening screen fades up once, the way a picture comes in. */
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  .screen-open img {
+    animation: fade-up 900ms cubic-bezier(0.16, 1, 0.3, 1) both;
+  }
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0.25;
+    filter: brightness(0.6);
+  }
+  to {
+    opacity: 1;
+    filter: none;
+  }
+}
