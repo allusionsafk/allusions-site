@@ -6,6 +6,7 @@ The media shown are generated test clips (colour bars and a titled test file). N
 
 | File | State shown | Edits |
 | --- | --- | --- |
+| `dm-quiet-*.webp` | Quiet playback: a generated colour-bar test clip playing with an SDH subtitle, controls hidden after inactivity, no panels | None. Captured 23 Sep 2026, 1280×720, from DemiMedia's own mpv player configuration during the interface work that became build `90e0a87` (it predates that commit by a few hours; nothing of the interface is on screen in this state). Served at 1280 and 800 px |
 | `dm-idle-*.webp` | The start screen before anything is opened | Cropped to its content band: headline, open actions and drop area |
 | `dm-choices-*.webp` | Picture choices: Automatic, the outcome list with Balanced improvement chosen, strength, performance, and the plan explained per decision | None; the phone crop is the outcomes and their settings |
 | `dm-plan-*.webp` | A test clip opened and ready to play with Enhanced choices, and Playback details showing source and plan | Local file path covered by a visible bar; cropped above the Observed section, which is empty before playback; the phone crop is the details panel |
