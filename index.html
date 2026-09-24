@@ -3,18 +3,18 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Allusions builds focused software for local AI, difficult media, and gameplay production.">
+  <meta name="description" content="ALLUSIONS is independent software by Jidan: AFK AI for local AI on Windows, DemiMedia for film playback, and ValClips for gameplay stories.">
   <link rel="canonical" href="https://allusions-site.pages.dev/">
   <meta property="og:type" content="website">
-  <meta property="og:title" content="Allusions · Independent Software">
-  <meta property="og:description" content="Allusions builds focused software for local AI, difficult media, and gameplay production.">
+  <meta property="og:title" content="ALLUSIONS · Independent software">
+  <meta property="og:description" content="ALLUSIONS is independent software by Jidan: AFK AI for local AI on Windows, DemiMedia for film playback, and ValClips for gameplay stories.">
   <meta property="og:url" content="https://allusions-site.pages.dev/">
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="Allusions · Independent Software">
-  <meta name="twitter:description" content="Allusions builds focused software for local AI, difficult media, and gameplay production.">
-  <meta name="theme-color" content="#f3f0e8">
+  <meta name="twitter:title" content="ALLUSIONS · Independent software">
+  <meta name="twitter:description" content="ALLUSIONS is independent software by Jidan: AFK AI for local AI on Windows, DemiMedia for film playback, and ValClips for gameplay stories.">
+  <meta name="theme-color" content="#f3f3f3">
   <meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'self'; font-src 'self'; img-src 'self'; connect-src 'none'; media-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'">
-  <title>Allusions · Independent Software</title>
+  <title>ALLUSIONS · Independent software</title>
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="assets/site.css">
 </head>
@@ -22,123 +22,114 @@
   <a class="skip-link" href="#main">Skip to content</a>
 
   <header class="masthead shell">
-    <div class="masthead-bar">
-      <p class="studio-mark">Independent software</p>
-      <nav aria-label="Primary navigation">
-        <a href="#projects">Projects</a>
-        <a href="#standard">Standard</a>
-        <a href="https://github.com/allusionsafk">GitHub</a>
-      </nav>
-    </div>
-    <p class="wordmark" aria-label="Allusions">ALLUSIONS</p>
+    <p class="imprint">Independent software by Jidan</p>
+    <nav aria-label="Primary navigation">
+      <a href="#products">Products</a>
+      <a href="#standard">Standard</a>
+      <a href="https://github.com/allusionsafk">GitHub</a>
+    </nav>
   </header>
 
   <main id="main">
-    <section class="hero ruled" aria-labelledby="hero-title">
-      <div class="shell hero-grid">
-        <h1 id="hero-title">Software that takes responsibility for the machinery.</h1>
-        <div class="hero-copy">
-          <p class="hero-lede">Allusions builds focused tools for local AI, difficult media, and gameplay production.</p>
-          <p class="hero-standard">The domains change. The standard does not: measure reality, make state legible, and keep complexity inside the tool.</p>
+    <section class="opening shell" aria-labelledby="studio-title">
+      <h1 id="studio-title" class="wordmark">ALLUSIONS</h1>
+      <div class="opening-copy">
+        <p class="lede">Three Windows products for local AI, film playback and gameplay stories. Each one does difficult work and says plainly what it did.</p>
+        <p class="handle"><a href="https://github.com/allusionsafk">@allusionsafk</a></p>
+      </div>
+      <ul class="contents" aria-label="Products and their status">
+        <li><a href="#afk-title">AFK AI</a> <span>Beta</span></li>
+        <li><a href="#dm-title">DemiMedia</a> <span>In development</span></li>
+        <li><a href="#vc-title">ValClips</a> <span>Private development</span></li>
+      </ul>
+    </section>
+
+    <div class="products" id="products">
+      <h2 class="visually-hidden">Products</h2>
+
+      <article class="product product-afk" aria-labelledby="afk-title">
+        <div class="product-text">
+          <h3 id="afk-title">AFK AI</h3>
+          <p class="job">Local AI for Windows, without the plumbing becoming the product.</p>
+          <p>AFK AI checks the PC, sets up the runtime and a model, and starts chat on this machine. When something is missing it names the one next step, and it refuses to touch containers it cannot prove it owns.</p>
+          <dl class="facts">
+            <div><dt>Status</dt><dd>Beta · <span class="machine">0.2.0-rc1</span> prerelease</dd></div>
+            <div><dt>Runs on</dt><dd>Windows 11 x64</dd></div>
+          </dl>
+          <p class="links"><a href="https://localai-windows-starter-site.allusionsafk.workers.dev/">AFK AI product site and download</a></p>
         </div>
-      </div>
-    </section>
+        <figure class="plate plate-afk">
+          <picture>
+          <source media="(max-width: 39.99rem)" srcset="assets/captures/afk-setup-phone.webp" width="760" height="678">
+          <img src="assets/captures/afk-setup-1600.webp" srcset="assets/captures/afk-setup-800.webp 800w, assets/captures/afk-setup-1600.webp 1600w" sizes="(min-width: 64rem) 58vw, 100vw" width="1600" height="792" alt="AFK AI Setup window: a checklist where Windows, virtualization and WSL are ready, Docker is not running and hardware is checked at setup, with Start Docker Desktop as the next step." loading="lazy" decoding="async">
+          </picture>
+          <figcaption>Setup checking a real PC, 24 Sep 2026. This is the next build (<span class="machine">37cbaed</span>), which still reports version 0.2.0-rc1; the 0.2.0-rc1 you can download today runs the same setup checks in its earlier dark interface.</figcaption>
+        </figure>
+      </article>
 
-    <section class="projects shell" id="projects" aria-labelledby="projects-title">
-      <header class="section-heading">
-        <h2 id="projects-title">Project register</h2>
-        <p>Three active lines</p>
-      </header>
+      <article class="product product-demimedia" aria-labelledby="dm-title">
+        <div class="product-text">
+          <h3 id="dm-title">DemiMedia</h3>
+          <p class="job">A Windows film player that lets the picture lead and keeps the detail one step away.</p>
+          <p>You choose the result you want, such as faithful picture or smoother motion. DemiMedia shows what you requested, what it planned and what the player actually reported, and shows when playback had to change path.</p>
+          <div class="product-meta">
+            <dl class="facts">
+              <div><dt>Status</dt><dd>In development · no release yet</dd></div>
+              <div><dt>Runs on</dt><dd>Windows 11 x64</dd></div>
+            </dl>
+            <p class="links"><a href="https://github.com/allusionsafk/adaptive-media">DemiMedia development on GitHub</a></p>
+          </div>
+        </div>
+        <figure class="plate plate-demimedia">
+          <picture>
+          <source media="(max-width: 39.99rem)" srcset="assets/captures/dm-player-details-phone.webp" width="604" height="1060">
+          <img src="assets/captures/dm-player-details-1600.webp" srcset="assets/captures/dm-player-details-800.webp 800w, assets/captures/dm-player-details-1600.webp 1600w" sizes="100vw" width="1600" height="900" alt="DemiMedia playing a generated colour-bar test clip with its Playback details panel open, listing the source, what was requested, what was planned and what the player observed, ending with Health: Healthy." loading="lazy" decoding="async">
+          </picture>
+          <figcaption>A generated test clip playing, 23 Sep 2026, with Playback details open: requested, planned and observed kept apart. Build <span class="machine">90e0a87</span>, now on main; not yet released. On a phone, the details panel from the same frame.</figcaption>
+        </figure>
+      </article>
 
-      <div class="project-register">
-        <article class="project">
-          <p class="project-index">01 / AFK</p>
-          <div class="project-intro">
-            <h3>AFK AI</h3>
-            <p>Local AI for Windows, without the plumbing becoming the product.</p>
-          </div>
-          <div class="project-meta">
-            <p class="status">Beta</p>
-            <ul class="proof-list" aria-label="AFK AI capabilities">
-              <li>Local inference</li>
-              <li>Guided Windows setup</li>
-              <li>Explicit network boundaries</li>
-            </ul>
-            <a class="project-link" href="https://localai-windows-starter-site.allusionsafk.workers.dev/">Visit the AFK AI product site<span aria-hidden="true"> ↗</span></a>
-          </div>
-        </article>
-
-        <article class="project">
-          <p class="project-index">02 / MEDIA</p>
-          <div class="project-intro">
-            <h3>DemiMedia</h3>
-            <p>Playback that understands the file, the display path, and the hardware underneath it.</p>
-          </div>
-          <div class="project-meta">
-            <p class="status">In development</p>
-            <ul class="proof-list" aria-label="DemiMedia capabilities">
-              <li>Reference-first playback</li>
-              <li>Explicit enhancements</li>
-              <li>Evidence-backed compatibility paths</li>
-            </ul>
-            <a class="project-link" href="https://github.com/allusionsafk/adaptive-media">View DemiMedia development<span aria-hidden="true"> ↗</span></a>
-          </div>
-        </article>
-
-        <article class="project">
-          <p class="project-index">03 / CLIPS</p>
-          <div class="project-intro">
-            <h3>ValClips</h3>
-            <p>Gameplay-to-clip intelligence built around evidence, not random highlights.</p>
-          </div>
-          <div class="project-meta">
-            <p class="status">In development</p>
-            <ul class="proof-list" aria-label="ValClips capabilities">
-              <li>Detection</li>
-              <li>Selection</li>
-              <li>Render planning</li>
-              <li>Finished vertical clips</li>
-            </ul>
-            <p class="availability">Public product surface pending.</p>
-          </div>
-        </article>
-      </div>
-    </section>
+      <article class="product product-valclips" aria-labelledby="vc-title">
+        <div class="product-text">
+          <h3 id="vc-title">ValClips</h3>
+          <p class="job">Turns long gameplay sessions into ranked, evidence-grounded stories worth making.</p>
+          <p>It reads a whole sitting, ranks the moments that make a story, previews the edit, and renders only after you choose how it should feel. Every claim in a clip has to be backed by what was on screen.</p>
+          <dl class="facts">
+            <div><dt>Status</dt><dd>Private development · no public download</dd></div>
+            <div><dt>Works with</dt><dd>Recordings from your existing capture tool</dd></div>
+          </dl>
+          <p class="links"><span class="unlinked">No public page yet</span></p>
+        </div>
+        <figure class="plate plate-valclips">
+          <picture>
+          <source media="(max-width: 39.99rem)" srcset="assets/captures/vc-session-phone.webp" width="630" height="1166">
+          <img src="assets/captures/vc-session-1600.webp" srcset="assets/captures/vc-session-800.webp 800w, assets/captures/vc-session-1600.webp 1600w" sizes="(min-width: 64rem) 58vw, 100vw" width="1600" height="900" alt="ValClips Session Director: a 57-minute sitting reduced to three ranked stories on a timeline, the first one previewing in a vertical player marked Ready." loading="lazy" decoding="async">
+          </picture>
+          <figcaption>One real sitting, 24 Sep 2026: three ranked stories, each rendered and checked. Development build <span class="machine">f73eff1</span>; player names blurred.</figcaption>
+        </figure>
+      </article>
+    </div>
 
     <section class="standard" id="standard" aria-labelledby="standard-title">
       <div class="shell standard-grid">
-        <div class="standard-heading">
-          <p>Working standard</p>
-          <h2 id="standard-title">Complexity belongs inside the tool.</h2>
-        </div>
+        <h2 id="standard-title">The working standard</h2>
         <ol class="principles">
-          <li>
-            <span aria-hidden="true">01</span>
-            <p><strong>Observe first.</strong> Measure the machine, media, or recording before acting.</p>
-          </li>
-          <li>
-            <span aria-hidden="true">02</span>
-            <p><strong>Tell the truth about state.</strong> Requested, inferred, and observed are different things.</p>
-          </li>
-          <li>
-            <span aria-hidden="true">03</span>
-            <p><strong>Own the boring parts.</strong> Setup, recovery, diagnostics, compatibility, and failure handling are product features.</p>
-          </li>
-          <li>
-            <span aria-hidden="true">04</span>
-            <p><strong>Keep the user out of the machinery.</strong> Technical depth should reduce user burden, not become a badge of complexity.</p>
-          </li>
+          <li><strong>Observe first.</strong> Measure the machine, the file or the recording before acting on it.</li>
+          <li><strong>Tell the truth about state.</strong> Requested, planned and observed are different things, and unknown stays unknown.</li>
+          <li><strong>Own the boring parts.</strong> Setup, recovery, diagnostics and failure handling are part of the product.</li>
+          <li><strong>Keep people out of the machinery.</strong> Technical depth should lower the burden, not become a badge.</li>
         </ol>
       </div>
     </section>
   </main>
 
-  <footer class="footer shell ruled">
-    <p>ALLUSIONS</p>
-    <div class="footer-links">
-      <a href="https://github.com/allusionsafk">Allusions on GitHub</a>
+  <footer class="footer shell">
+    <p class="footer-mark">ALLUSIONS</p>
+    <p>Independent software by Jidan. Status as of 24 September 2026. No analytics, no trackers.</p>
+    <nav aria-label="Footer navigation">
+      <a href="https://github.com/allusionsafk">@allusionsafk on GitHub</a>
       <a href="#main">Back to top</a>
-    </div>
+    </nav>
   </footer>
 </body>
 </html>

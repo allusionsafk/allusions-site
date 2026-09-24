@@ -24,7 +24,8 @@ $requiredFiles = @(
     'assets/fonts/ibm-plex-mono-400-latin.woff2',
     'assets/fonts/ibm-plex-mono-500-latin.woff2',
     'assets/fonts/ibm-plex-mono-600-latin.woff2',
-    'assets/fonts/OFL-IBM-Plex-Mono.txt'
+    'assets/fonts/OFL-IBM-Plex-Mono.txt',
+    'assets/captures/PROVENANCE.md'
 )
 
 foreach ($relativePath in $requiredFiles) {
@@ -39,10 +40,10 @@ if (Test-Path -LiteralPath $indexPath) {
     $html = Get-Content -LiteralPath $indexPath -Raw
     Assert-True ([regex]::Matches($html, '<h1(?:\s|>)', 'IgnoreCase').Count -eq 1) 'index.html must contain exactly one H1'
     Assert-True ($html -match '<html\s+lang="en"') 'Document language must be declared'
-    Assert-True ($html -match '<title>Allusions · Independent Software</title>') 'Document title is incorrect'
+    Assert-True ($html -match '<title>ALLUSIONS · Independent software</title>') 'Document title is incorrect'
     Assert-True ($html -match '<link\s+rel="canonical"\s+href="https://allusions-site\.pages\.dev/">') 'Production canonical URL is missing or incorrect'
-    Assert-True ($html -match '<meta\s+property="og:title"\s+content="Allusions · Independent Software">') 'Open Graph title is missing or incorrect'
-    Assert-True ($html -match '<meta\s+property="og:description"\s+content="Allusions builds focused software for local AI, difficult media, and gameplay production\.">') 'Open Graph description is missing or incorrect'
+    Assert-True ($html -match '<meta\s+property="og:title"\s+content="ALLUSIONS · Independent software">') 'Open Graph title is missing or incorrect'
+    Assert-True ($html -match '<meta\s+property="og:description"\s+content="ALLUSIONS is independent software by Jidan: AFK AI for local AI on Windows, DemiMedia for film playback, and ValClips for gameplay stories\.">') 'Open Graph description is missing or incorrect'
     Assert-True ($html -match '<meta\s+property="og:url"\s+content="https://allusions-site\.pages\.dev/">') 'Open Graph URL is missing or incorrect'
     Assert-True ($html -match '<meta\s+name="twitter:card"\s+content="summary">') 'Twitter card metadata is missing or incorrect'
     Assert-True ($html -notmatch '(?:og:image|twitter:image)') 'A social image must not be invented'
@@ -50,12 +51,13 @@ if (Test-Path -LiteralPath $indexPath) {
     Assert-True ($html -match '<nav[^>]+aria-label=') 'Navigation must have an accessible name'
     Assert-True ($html -match '<main\s+id="main"') 'Main landmark must be present and targetable'
     Assert-True ($html -match '<footer') 'Footer landmark must be present'
-    Assert-True ($html -match '>Projects<') 'Projects navigation label is missing'
+    Assert-True ($html -match '>Products<') 'Products navigation label is missing'
     Assert-True ($html -match '>Standard<') 'Standard navigation label is missing'
     Assert-True ($html -match '>GitHub<') 'GitHub navigation label is missing'
-    Assert-True ($html -match 'Software that takes responsibility for the machinery\.') 'Approved hero copy is missing'
+    Assert-True ($html -match 'Independent software by Jidan' -and $html -match '@allusionsafk') 'Imprint and handle are missing'
+    Assert-True ($html -match '<h1[^>]*>ALLUSIONS</h1>') 'The wordmark must be the page heading'
     Assert-True ($html -match 'AFK AI' -and $html -match 'DemiMedia' -and $html -match 'ValClips') 'Project register is incomplete'
-    Assert-True ($html -match '>Beta<' -and ([regex]::Matches($html, '>In development<').Count -eq 2)) 'Project statuses are incorrect'
+    Assert-True ($html -match 'Beta · <span class="machine">0\.2\.0-rc1</span> prerelease' -and $html -match 'In development · no release yet' -and $html -match 'Private development · no public download') 'Product statuses are incorrect'
     Assert-True ($html -match 'https://localai-windows-starter-site\.allusionsafk\.workers\.dev/') 'AFK destination is incorrect'
     Assert-True ($html -match 'https://github\.com/allusionsafk/adaptive-media') 'DemiMedia destination is incorrect'
     Assert-True ($html -notmatch 'Adaptive Media|Demi Player|Allusions — Independent software studio') 'Stale public identity text remains in index.html'
@@ -64,6 +66,24 @@ if (Test-Path -LiteralPath $indexPath) {
     Assert-True ($html -notmatch '\sstyle=') 'Inline styles are forbidden by CSP'
     Assert-True ($html -notmatch '(?i)(?:src|href)="https?://[^\"]+\.(?:js|css|woff2?|ttf|otf)') 'Remote executable or font assets are forbidden'
     Assert-True ($html -match '<link\s+rel="icon"\s+href="assets/favicon\.svg"') 'Self-hosted favicon link is missing'
+    # Real captures only: every product image exists, has text and dimensions, and says which build it shows.
+    $provenancePath = Join-Path $siteRoot 'assets/captures/PROVENANCE.md'
+    $provenance = if (Test-Path -LiteralPath $provenancePath) { Get-Content -LiteralPath $provenancePath -Raw } else { '' }
+    $figures = [regex]::Matches($html, '(?s)<figure[^>]*>.*?</figure>')
+    Assert-True ($figures.Count -eq 3) 'Each product must show exactly one real capture'
+    foreach ($figure in $figures) {
+        $img = [regex]::Match($figure.Value, '<img[^>]+>').Value
+        foreach ($file in [regex]::Matches($figure.Value, 'assets/captures/[a-z-]+\.webp')) {
+            Assert-True (Test-Path -LiteralPath (Join-Path $siteRoot $file.Value)) "Missing capture file $($file.Value)"
+        }
+        Assert-True ($img -match 'alt="[^"]{40,}"') "Capture needs descriptive alt text: $img"
+        Assert-True ($img -match 'width="\d+"' -and $img -match 'height="\d+"') "Capture needs intrinsic dimensions: $img"
+        Assert-True ($figure.Value -match '<figcaption>[^<]*(?:<span class="machine">[0-9a-f]{7}</span>)') 'Every capture caption must name the build it shows'
+        foreach ($src in [regex]::Matches($img, 'assets/captures/([a-z-]+)-(?:800|1600)\.webp')) {
+            Assert-True (Test-Path -LiteralPath (Join-Path $siteRoot "assets/captures/$($src.Groups[1].Value)-1600.webp")) "Missing capture $($src.Value)"
+            Assert-True ($provenance -match [regex]::Escape("$($src.Groups[1].Value)-*.webp")) "Capture $($src.Groups[1].Value) has no provenance entry"
+        }
+    }
 }
 
 $bricolageLicensePath = Join-Path $siteRoot 'assets/fonts/OFL-Bricolage-Grotesque.txt'
@@ -84,10 +104,11 @@ if (Test-Path -LiteralPath $cssPath) {
     $css = Get-Content -LiteralPath $cssPath -Raw
     Assert-True ($css -match '@font-face') 'Self-hosted font declarations are missing'
     Assert-True ($css -match ':focus-visible') 'Visible keyboard focus styles are missing'
-    Assert-True ($css -match 'prefers-reduced-motion:\s*reduce') 'Reduced-motion handling is missing'
+    Assert-True ($css -match 'prefers-reduced-motion:\s*(?:reduce|no-preference)') 'Reduced-motion handling is missing'
     Assert-True ($css -match 'min-height:\s*44px') 'Interactive targets must provide a practical 44px minimum height'
     Assert-True ($css -notmatch '(?i)url\(["'']?https?://') 'CSS must not load remote assets'
-    Assert-True ($css -match '(?s)\.skip-link:hover\s*\{[^}]*color:\s*var\(--ground\)') 'Skip-link hover must preserve contrast on its dark surface'
+    Assert-True ($css -match '(?s)\.skip-link\s*\{[^}]*background:\s*var\(--ink\);[^}]*color:\s*var\(--paper\)') 'Skip link must keep paper-on-ink contrast'
+    Assert-True ($css -notmatch '(?i)oklch\([^)]*\s0\.0*[1-9]') 'The studio frame must stay achromatic'
 }
 
 if (Test-Path -LiteralPath $headersPath) {
