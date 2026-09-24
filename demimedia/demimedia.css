@@ -226,12 +226,42 @@ a:hover {
 
 .open-copy {
   display: grid;
-  gap: 1rem;
-  margin-bottom: clamp(1.75rem, 4vw, 3rem);
+  gap: 1rem 3rem;
+  align-items: end;
+  margin-bottom: clamp(1.5rem, 3vw, 2.5rem);
 }
 
-.open-copy > * {
-  max-width: 44rem;
+.open-side {
+  display: grid;
+  gap: 0.75rem;
+  max-width: 40rem;
+}
+
+@media (min-width: 64rem) {
+  .open-copy {
+    grid-template-columns: minmax(0, 6fr) minmax(0, 5fr);
+  }
+}
+
+/* The picture takes the screen: full-bleed on the viewing canvas, never cropped. */
+.screen-hero {
+  background: var(--canvas);
+}
+
+.screen-hero img {
+  width: auto;
+  max-width: 100%;
+  max-height: min(78vh, 56.25vw);
+  margin-inline: auto;
+  padding: 0;
+  border-radius: 0;
+}
+
+.screen-hero figcaption {
+  width: min(100% - 2 * var(--gutter), var(--wrap));
+  max-width: none;
+  margin: 0 auto;
+  padding-block: 0.85rem;
 }
 
 h1 {
@@ -260,6 +290,26 @@ h1 {
   color: var(--ink);
 }
 
+.chapter-start .start-grid {
+  display: grid;
+  gap: 1rem;
+  margin-bottom: clamp(1.5rem, 3vw, 2.5rem);
+}
+
+.start-grid p {
+  max-width: 40rem;
+  color: var(--support);
+  text-wrap: pretty;
+}
+
+@media (min-width: 64rem) {
+  .chapter-start .start-grid {
+    grid-template-columns: minmax(0, 4fr) minmax(0, 8fr);
+    column-gap: clamp(2rem, 4vw, 4.5rem);
+    align-items: end;
+  }
+}
+
 .screen-open,
 .screen-wide {
   width: min(100% - 2 * var(--gutter), var(--wrap));
@@ -269,9 +319,7 @@ h1 {
 /* Chapters: one screen, a few lines. ------------------------------- */
 
 .chapter,
-.details,
-.claims,
-.status {
+.details {
   padding-block: var(--chapter);
   border-top: 1px solid var(--separator);
 }
@@ -371,43 +419,57 @@ h3 {
   }
 }
 
-/* Claims and status: plain lists on the ground. -------------------- */
+/* Credits: the playback facts set like a film's closing credits, centred on the canvas. */
+.credits {
+  padding-block: var(--chapter);
+  background: var(--canvas);
+}
 
-.claims-grid,
+.credits-roll {
+  display: grid;
+  justify-items: center;
+  gap: clamp(2rem, 4vw, 3rem);
+  text-align: center;
+}
+
+.credits h2 {
+  max-width: 22ch;
+}
+
+.credit {
+  display: grid;
+  gap: 0.4rem;
+  max-width: 38rem;
+}
+
+.credit h3 {
+  margin-bottom: 0.4rem;
+  color: var(--support);
+  font-size: 0.9375rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+}
+
+.credit p {
+  font-size: 1.0625rem;
+  text-wrap: balance;
+}
+
+.credit-not p {
+  color: var(--support);
+}
+
+.status {
+  padding-block: var(--chapter);
+  border-top: 1px solid var(--separator);
+}
+
 .status-grid {
   display: grid;
   gap: 2rem;
 }
 
-.claims-cols {
-  display: grid;
-  gap: 2rem;
-}
-
-.claims ul {
-  list-style: none;
-  padding: 0;
-  display: grid;
-  gap: 0.75rem;
-  margin-top: 0.85rem;
-}
-
-.claims li {
-  padding-top: 0.75rem;
-  border-top: 1px solid var(--separator);
-  color: var(--support);
-  text-wrap: pretty;
-}
-
-@media (min-width: 48rem) {
-  .claims-cols {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    column-gap: clamp(1.5rem, 3vw, 3rem);
-  }
-}
-
 @media (min-width: 64rem) {
-  .claims-grid,
   .status-grid {
     grid-template-columns: minmax(0, 4fr) minmax(0, 8fr);
     column-gap: clamp(2rem, 4vw, 4.5rem);
@@ -481,7 +543,7 @@ h3 {
     scroll-behavior: smooth;
   }
 
-  .screen-open img {
+  .screen-hero img {
     animation: fade-up 900ms cubic-bezier(0.16, 1, 0.3, 1) both;
   }
 }

@@ -34,13 +34,26 @@
     <section class="open" aria-labelledby="open-title">
       <div class="wrap open-copy">
         <h1 id="open-title">Let the picture lead.</h1>
-        <p class="lede">DemiMedia is a Windows film player built so the picture leads. You choose the result you want; it plans how to get there on your hardware, and it keeps the details one step away.</p>
-        <p class="state">In development · no release yet · <a href="https://github.com/allusionsafk/adaptive-media">Follow it on GitHub</a></p>
+        <div class="open-side">
+          <p class="lede">DemiMedia is a Windows film player built so the picture leads. You choose the result you want; it plans how to get there on your hardware, and it keeps the details one step away.</p>
+          <p class="state">In development · no release yet · <a href="https://github.com/allusionsafk/adaptive-media">Follow it on GitHub</a></p>
+        </div>
+      </div>
+      <figure class="screen screen-hero">
+        <img src="/demimedia/captures/dm-quiet-1280.webp" srcset="/demimedia/captures/dm-quiet-800.webp 800w, /demimedia/captures/dm-quiet-1280.webp 1280w" sizes="100vw" width="1280" height="720" alt="Quiet playback in DemiMedia: a generated colour-bar test clip fills the frame with an English SDH subtitle line, and no controls or panels are on screen." fetchpriority="high">
+        <figcaption>Quiet playback: the controls hide after a moment and only the picture and subtitles remain. A generated test clip, captured 23 Sep 2026 during the DemiMedia interface work that became build <span class="machine">90e0a87</span>.</figcaption>
+      </figure>
+    </section>
+
+    <section class="chapter chapter-start" aria-labelledby="start-title">
+      <div class="wrap start-grid">
+        <h2 id="start-title">It starts quiet, too.</h2>
+        <p>One question before anything else: what do you want to watch? A file, a folder or a stream. Everything else waits one step away.</p>
       </div>
       <figure class="screen screen-open">
         <picture>
           <source media="(max-width: 39.99rem)" srcset="/demimedia/captures/dm-idle-phone.webp" width="760" height="288">
-          <img src="/demimedia/captures/dm-idle-1600.webp" srcset="/demimedia/captures/dm-idle-800.webp 800w, /demimedia/captures/dm-idle-1600.webp 1600w" sizes="(min-width: 90rem) 84rem, 94vw" width="1600" height="386" alt="The DemiMedia start screen: Open a film. The rest can wait., with Open file, Open folder and Open URL buttons and a drop area that says It plays from this PC." fetchpriority="high">
+          <img src="/demimedia/captures/dm-idle-1600.webp" srcset="/demimedia/captures/dm-idle-800.webp 800w, /demimedia/captures/dm-idle-1600.webp 1600w" sizes="(min-width: 90rem) 84rem, 94vw" width="1600" height="386" alt="The DemiMedia start screen: Open a film. The rest can wait., with Open file, Open folder and Open URL buttons and a drop area that says It plays from this PC." loading="lazy" decoding="async">
         </picture>
         <figcaption>The start screen, captured 23 Sep 2026 from build <span class="machine">90e0a87</span>, merged to main as <span class="machine">96da0de</span> on 24 Sep.</figcaption>
       </figure>
@@ -105,29 +118,26 @@
     </section>
 
 
-    <section class="claims" aria-labelledby="claims-title">
-      <div class="wrap claims-grid">
-        <h2 id="claims-title">What it does, and what it does not claim</h2>
-        <div class="claims-cols">
-          <div>
-            <h3>Does</h3>
-            <ul>
-              <li>Plays through mpv, libplacebo and FFmpeg, with MPC-BE as a compatibility fallback.</li>
-              <li>Uses hardware decoding on paths where it is supported.</li>
-              <li>Keeps decoded PCM as the safe audio default; HDMI bitstream is optional.</li>
-              <li>Offers NVIDIA RTX Video Super Resolution and RTX Video HDR as explicit choices where the hardware supports them, never switched on silently.</li>
-              <li>Converts Dolby Vision Profile 7 files to Profile 8.1 for compatibility where supported, with bounded temporary space.</li>
-            </ul>
-          </div>
-          <div>
-            <h3>Does not claim</h3>
-            <ul>
-              <li>Universal Dolby Vision or HDR support on every display.</li>
-              <li>Native Profile 7 enhancement-layer passthrough.</li>
-              <li>AI frame generation. Smoother motion blends real frames.</li>
-              <li>That a requested enhancement was delivered before the player reports it.</li>
-            </ul>
-          </div>
+    <section class="credits" aria-labelledby="credits-title">
+      <div class="wrap credits-roll">
+        <h2 id="credits-title">What it does, and what it does not claim</h2>
+        <div class="credit">
+          <h3>Plays through</h3>
+          <p>mpv, libplacebo and FFmpeg, with MPC-BE as a compatibility fallback</p>
+          <p>Hardware decoding on paths where it is supported</p>
+          <p>Decoded PCM as the safe audio default; HDMI bitstream optional</p>
+        </div>
+        <div class="credit">
+          <h3>Offers, never silently</h3>
+          <p>NVIDIA RTX Video Super Resolution and RTX Video HDR, where the hardware supports them</p>
+          <p>Dolby Vision Profile 7 to Profile 8.1 conversion for compatibility, where supported, with bounded temporary space</p>
+        </div>
+        <div class="credit credit-not">
+          <h3>Does not claim</h3>
+          <p>Universal Dolby Vision or HDR support on every display</p>
+          <p>Native Profile 7 enhancement-layer passthrough</p>
+          <p>AI frame generation; smoother motion blends real frames</p>
+          <p>That a requested enhancement was delivered before the player reports it</p>
         </div>
       </div>
     </section>
@@ -148,7 +158,7 @@
   <footer class="foot">
     <div class="wrap foot-row">
       <p>DemiMedia · status as of 24 September 2026 · <a href="/demimedia/captures/PROVENANCE.md">How these captures were made</a></p>
-      <p>Independent software by Jidan, published by <a href="/">ALLUSIONS</a></p>
+      <p>Built by <a href="/">ALLUSIONS</a> · independent software by Jidan</p>
     </div>
   </footer>
 </body>
