@@ -1,0 +1,701 @@
+/*
+ * ValClips product page: kinetic, creator-led, time-driven.
+ * The composition is the product's own reduction: a long session becomes three ranked
+ * stories becomes one vertical edit. The real edit is the focal object; it stays in view
+ * while the steps that made it scroll past. Coral marks the current thing; green is not
+ * used. Palette from the app. Fonts are the studio's self-hosted files (OFL 1.1).
+ */
+
+@font-face {
+  font-family: "Bricolage Grotesque";
+  src: url("/assets/fonts/bricolage-grotesque-latin-var.woff2") format("woff2");
+  font-style: normal;
+  font-weight: 400 800;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "IBM Plex Mono";
+  src: url("/assets/fonts/ibm-plex-mono-400-latin.woff2") format("woff2");
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+
+:root {
+  color-scheme: dark;
+  --charcoal: #141719;
+  --panel: #1b1f22;
+  --ink: #f0f1ed;
+  --support: #b2b8ba;
+  --rule: #343b3f;
+  --segment: #4a5357;
+  --coral: #ff796d;
+  --on-coral: #1a0f0d;
+
+  --display: "Bricolage Grotesque", "Segoe UI Variable Display", "Segoe UI", system-ui, sans-serif;
+  --text: "Segoe UI Variable Text", "Segoe UI", system-ui, -apple-system, "Helvetica Neue", sans-serif;
+  --machine: "IBM Plex Mono", "Cascadia Mono", Consolas, monospace;
+
+  --gutter: clamp(1.25rem, 3vw, 3rem);
+  --wrap: 84rem;
+  --measure: 34rem;
+  --section: clamp(4rem, 9vw, 7.5rem);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  scrollbar-color: var(--segment) var(--charcoal);
+}
+
+body {
+  margin: 0;
+  background: var(--charcoal);
+  color: var(--ink);
+  font-family: var(--text);
+  font-size: 1.0625rem;
+  line-height: 1.65;
+}
+
+::selection {
+  background: var(--coral);
+  color: var(--on-coral);
+}
+
+h1,
+h2,
+h3,
+p,
+dl,
+dd,
+ol,
+ul,
+figure {
+  margin: 0;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+a {
+  color: inherit;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.22em;
+}
+
+a:hover {
+  text-decoration-color: var(--coral);
+}
+
+:focus-visible {
+  outline: 2px solid var(--coral);
+  outline-offset: 3px;
+}
+
+.wrap {
+  width: min(100% - 2 * var(--gutter), var(--wrap));
+  margin-inline: auto;
+}
+
+.machine {
+  font-family: var(--machine);
+  font-size: 0.86em;
+  font-variant-numeric: tabular-nums;
+}
+
+.skip-link {
+  position: absolute;
+  left: var(--gutter);
+  top: 0.5rem;
+  z-index: 10;
+  padding: 0.6rem 1rem;
+  background: var(--coral);
+  color: var(--on-coral);
+  transform: translateY(-200%);
+}
+
+.skip-link:focus-visible {
+  transform: none;
+  outline-color: var(--ink);
+}
+
+/* Top bar ----------------------------------------------------------- */
+
+.bar {
+  border-bottom: 1px solid var(--rule);
+}
+
+.bar-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0 2rem;
+  min-height: 4rem;
+}
+
+.name {
+  display: flex;
+  align-items: baseline;
+  gap: 0.6rem;
+}
+
+.name > a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  font-family: var(--display);
+  font-weight: 700;
+  font-size: 1.35rem;
+  letter-spacing: -0.02em;
+  text-decoration: none;
+}
+
+.name span {
+  color: var(--support);
+  font-size: 0.9375rem;
+}
+
+.bar nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0 1.5rem;
+}
+
+.bar nav a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  color: var(--support);
+  font-size: 0.9375rem;
+  text-decoration: none;
+}
+
+.bar nav a:hover {
+  color: var(--ink);
+}
+
+/* Reel: the promise, the reduction, and the real vertical edit. ---- */
+
+.reel {
+  padding-block: clamp(2rem, 5vw, 4rem) var(--section);
+}
+
+.reel-grid {
+  display: grid;
+  gap: 2.5rem;
+}
+
+.reel-copy {
+  display: grid;
+  gap: 1rem;
+  align-content: center;
+}
+
+h1 {
+  max-width: 13ch;
+  font-family: var(--display);
+  font-weight: 650;
+  font-size: clamp(2.6rem, 6vw, 5.25rem);
+  line-height: 0.98;
+  letter-spacing: -0.035em;
+  text-wrap: balance;
+}
+
+.lede {
+  max-width: 40rem;
+  color: var(--support);
+  font-size: clamp(1.1rem, 1.5vw, 1.25rem);
+  line-height: 1.55;
+  text-wrap: pretty;
+}
+
+.state {
+  color: var(--support);
+  font-size: 0.9375rem;
+}
+
+/* The reduction, drawn to scale: one bar per stage, its length the time that stage
+   keeps. The session's 3,444.4 recorded seconds (57 min) are the full track; 37.3 s
+   (three stories) and 20.0 s (the edit) are what is left of it: 37.3/3444.4 and
+   20/3444.4 of the track, never rounded up beyond a visible 3px sliver. */
+.reduction {
+  list-style: none;
+  padding: 0;
+  display: grid;
+  gap: 1.1rem;
+  margin-top: clamp(1rem, 2.5vw, 1.75rem);
+  max-width: 38rem;
+}
+
+.reduction li {
+  display: grid;
+  grid-template-columns: 7.5rem minmax(0, 1fr);
+  grid-template-areas: "num label" "bar bar";
+  column-gap: 1rem;
+  row-gap: 0.45rem;
+  align-items: baseline;
+}
+
+.reduction strong {
+  grid-area: num;
+  font-family: var(--display);
+  font-weight: 650;
+  font-size: clamp(1.9rem, 3.4vw, 2.8rem);
+  line-height: 1;
+  letter-spacing: -0.03em;
+  font-variant-numeric: tabular-nums;
+}
+
+.reduction strong span {
+  font-size: max(0.45em, 0.875rem);
+  font-weight: 600;
+  letter-spacing: 0;
+  color: var(--support);
+}
+
+.r-label {
+  grid-area: label;
+  color: var(--support);
+  font-size: 0.9375rem;
+  line-height: 1.35;
+}
+
+.r-bar {
+  grid-area: bar;
+  display: block;
+  height: 10px;
+  background: var(--segment);
+  transform-origin: left;
+}
+
+.r-stories .r-bar {
+  width: max(3px, 1.0829%);
+  background: var(--support);
+}
+
+.r-edit .r-bar {
+  width: max(3px, 0.5806%);
+  background: var(--coral);
+}
+
+.reduction-note {
+  max-width: 38rem;
+  color: var(--support);
+  font-size: 0.875rem;
+}
+
+/* The vertical edit is a real 9:16 frame, shown at a size where it reads. */
+.output {
+  display: grid;
+  gap: 0.6rem;
+  justify-items: center;
+  min-width: 0;
+}
+
+.output img {
+  width: auto;
+  max-height: min(80vh, 44rem);
+  aspect-ratio: 9 / 16;
+  border-radius: 10px;
+  background: var(--panel);
+}
+
+.output figcaption {
+  color: var(--support);
+  font-size: 0.875rem;
+  line-height: 1.45;
+  text-align: center;
+}
+
+@media (min-width: 64rem) {
+  .reel-grid {
+    grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
+    column-gap: clamp(2rem, 4vw, 4rem);
+    align-items: center;
+  }
+}
+
+@media (max-width: 63.99rem) {
+  .output-lead img {
+    max-height: 70vh;
+  }
+}
+
+/* Stories: the ranking at page scale. ------------------------------ */
+
+.stories,
+.editor,
+.plain {
+  padding-block: var(--section);
+  border-top: 1px solid var(--rule);
+}
+
+.step-head {
+  display: grid;
+  gap: 1rem;
+}
+
+.step-head > * {
+  max-width: 44rem;
+}
+
+.step-head p {
+  color: var(--support);
+  text-wrap: pretty;
+}
+
+/* Five segments: Session, Stories, Preview, Treatment and render, Ready and publish.
+   The coral one is where this part of the page sits in that flow. */
+.progress {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 4px;
+  width: min(100%, 15rem);
+  margin-bottom: 0.25rem;
+}
+
+.progress i {
+  height: 4px;
+  background: var(--segment);
+}
+
+.at-2 .progress i:nth-child(2),
+.at-3 .progress i:nth-child(3),
+.at-4 .progress i:nth-child(4),
+.at-5 .progress i:nth-child(5) {
+  background: var(--coral);
+}
+
+h2 {
+  font-family: var(--display);
+  font-weight: 650;
+  font-size: clamp(2rem, 3.8vw, 3.1rem);
+  line-height: 1.02;
+  letter-spacing: -0.03em;
+  text-wrap: balance;
+}
+
+h3 {
+  font-size: 1.0625rem;
+  font-weight: 650;
+}
+
+.ranked {
+  list-style: none;
+  padding: 0;
+  margin-block: clamp(2rem, 4vw, 3rem);
+  border-top: 1px solid var(--rule);
+}
+
+.ranked li {
+  display: grid;
+  grid-template-columns: 3.5rem minmax(0, 1fr);
+  gap: 0.25rem 1rem;
+  align-items: baseline;
+  padding-block: 1.25rem;
+  border-bottom: 1px solid var(--rule);
+}
+
+.rank {
+  font-family: var(--display);
+  font-weight: 600;
+  font-size: clamp(2.2rem, 4vw, 3.4rem);
+  line-height: 1;
+  color: var(--coral);
+  font-variant-numeric: tabular-nums;
+}
+
+.ranked h3 {
+  font-family: var(--display);
+  font-weight: 650;
+  font-size: clamp(1.45rem, 2.6vw, 2.2rem);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+
+.ranked div p {
+  margin-top: 0.3rem;
+  color: var(--support);
+  text-wrap: pretty;
+}
+
+.ranked .len {
+  grid-column: 2;
+  color: var(--support);
+  font-size: 0.9375rem;
+}
+
+.ranked li:first-child h3 {
+  color: var(--ink);
+}
+
+.ranked li:not(:first-child) .rank {
+  color: var(--support);
+}
+
+@media (min-width: 48rem) {
+  .ranked li {
+    grid-template-columns: 5rem minmax(0, 1fr) auto;
+  }
+  .ranked .len {
+    grid-column: 3;
+    text-align: right;
+  }
+}
+
+/* Frames: real Director captures on a panel. */
+.frame {
+  display: grid;
+  gap: 0.85rem;
+  min-width: 0;
+}
+
+.frame picture {
+  display: block;
+  min-width: 0;
+}
+
+.frame img {
+  width: 100%;
+  background: var(--panel);
+  padding: clamp(0.4rem, 1.2vw, 1rem);
+}
+
+/* Below 48rem the Director's own phone layout is served; keep it at phone width. */
+@media (max-width: 47.99rem) {
+  .frame img {
+    max-width: 26rem;
+    margin-inline: auto;
+  }
+}
+
+.frame figcaption {
+  max-width: var(--measure);
+  color: var(--support);
+  font-size: 0.875rem;
+  line-height: 1.5;
+  text-wrap: pretty;
+}
+
+/* Editor: the edit stays in view while the steps that made it pass by. ---- */
+
+.editor-title {
+  margin-bottom: clamp(2rem, 4vw, 3rem);
+}
+
+.editor-grid {
+  display: grid;
+  gap: 2.5rem;
+}
+
+.edit-steps {
+  display: grid;
+  gap: clamp(3.5rem, 8vw, 6rem);
+}
+
+.edit-step {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.treatments {
+  display: grid;
+  border-top: 1px solid var(--rule);
+}
+
+.treatments div {
+  display: grid;
+  gap: 0.15rem;
+  padding-block: 0.75rem;
+  border-bottom: 1px solid var(--rule);
+}
+
+.treatments dt {
+  font-weight: 650;
+}
+
+.treatments div:first-child dt {
+  color: var(--coral);
+}
+
+.treatments dd {
+  color: var(--support);
+  font-size: 0.9375rem;
+  text-wrap: pretty;
+}
+
+@media (min-width: 48rem) {
+  .treatments {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: 1.5rem;
+  }
+}
+
+/* The three real frames of the edit sit in a row above the steps. This is the layout
+   everyone gets; with motion allowed and scroll timelines supported, desktop pins one
+   frame beside the steps instead (see Motion). */
+.edit-stack {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.75rem;
+  max-width: 44rem;
+}
+
+.beat img {
+  max-height: none;
+  width: 100%;
+}
+
+.edit-step h3 {
+  font-family: var(--display);
+  font-weight: 650;
+  font-size: clamp(1.6rem, 2.6vw, 2.25rem);
+  line-height: 1.08;
+  letter-spacing: -0.025em;
+  text-wrap: balance;
+}
+
+/* What it is / is not ------------------------------------------------ */
+
+.plain-grid {
+  display: grid;
+  gap: 2rem;
+}
+
+.plain-cols {
+  display: grid;
+  gap: 2rem;
+}
+
+.plain ul {
+  list-style: none;
+  padding: 0;
+  display: grid;
+  gap: 0.75rem;
+  margin-top: 0.85rem;
+}
+
+.plain li {
+  padding-top: 0.75rem;
+  border-top: 1px solid var(--rule);
+  color: var(--support);
+  text-wrap: pretty;
+}
+
+@media (min-width: 48rem) {
+  .plain-cols {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: clamp(1.5rem, 3vw, 3rem);
+  }
+}
+
+@media (min-width: 64rem) {
+  .plain-grid {
+    grid-template-columns: minmax(0, 4fr) minmax(0, 8fr);
+    column-gap: clamp(2rem, 4vw, 4rem);
+  }
+}
+
+/* Footer ------------------------------------------------------------ */
+
+.foot {
+  padding-block: 2rem;
+  border-top: 1px solid var(--rule);
+  color: var(--support);
+  font-size: 0.9375rem;
+}
+
+.foot-row {
+  display: grid;
+  gap: 0.5rem;
+}
+
+.foot a {
+  color: var(--ink);
+}
+
+/* Motion ------------------------------------------------------------ *
+ * Everything is visible without motion. With motion allowed, the reduction's bars draw
+ * in order on arrival, and (where scroll timelines are supported) the pinned
+ * edit shows the beat that belongs to the step being read. */
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  /* The reduction sits in the first viewport, so it draws on arrival: the full session,
+     then what survives of it. Each bar keeps its true length; only its reveal animates. */
+  .r-bar {
+    animation: draw 620ms cubic-bezier(0.16, 1, 0.3, 1) both;
+  }
+  .r-stories .r-bar { animation-delay: 520ms; }
+  .r-edit .r-bar { animation-delay: 760ms; }
+
+  @supports (animation-timeline: view()) and (timeline-scope: --a) {
+    @media (min-width: 64rem) {
+      .editor-grid {
+        grid-template-columns: minmax(0, 4fr) minmax(0, 8fr);
+        column-gap: clamp(2rem, 4vw, 4rem);
+        align-items: start;
+      }
+
+      /* One frame at a time, pinned beside the steps; each step brings its own beat. */
+      .edit-stack {
+        position: sticky;
+        top: 1.5rem;
+        max-width: none;
+        grid-template-columns: 1fr;
+        grid-template-areas: "beat";
+      }
+      .beat { grid-area: beat; }
+      .beat img {
+        width: auto;
+        max-height: min(84vh, 40rem);
+      }
+
+      .editor { timeline-scope: --t-preview, --t-treatment, --t-ready; }
+      .step-preview { view-timeline: --t-preview block; }
+      .step-treatment { view-timeline: --t-treatment block; }
+      .step-ready { view-timeline: --t-ready block; }
+
+      .beat {
+        animation-timing-function: linear;
+        animation-fill-mode: both;
+      }
+      .beat-2 { animation-name: beat-first; animation-timeline: --t-preview; animation-range: cover 0% cover 100%; }
+      .beat-3 { animation-name: beat-middle; animation-timeline: --t-treatment; animation-range: cover 0% cover 100%; }
+      .beat-5 { animation-name: beat-last; animation-timeline: --t-ready; animation-range: cover 0% cover 55%; }
+    }
+  }
+}
+@keyframes draw {
+  from { transform: scaleX(0); }
+  to { transform: scaleX(1); }
+}
+
+@keyframes beat-first {
+  0%, 88% { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+@keyframes beat-middle {
+  0% { opacity: 0; }
+  12%, 85% { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+@keyframes beat-last {
+  0%, 40% { opacity: 0; }
+  60%, 100% { opacity: 1; }
+}

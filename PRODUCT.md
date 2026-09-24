@@ -17,7 +17,7 @@ People encountering one Allusions product who want to understand the maker behin
 - AFK AI is in Beta and its product site is the authority for downloads and exact release information.
 - DemiMedia is in development and its public repository is the authority for current engineering status.
 - DemiMedia's product page lives at /demimedia/ in this repository; it reflects development status with no release, and GitHub remains the engineering authority.
-- ValClips is in private development and has no public product surface, repository link, or download.
+- ValClips is in private development with no public download or repository; its product page lives at /valclips/ in this repository.
 - The studio site is not itself a product release channel.
 
 ## Constraints

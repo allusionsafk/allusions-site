@@ -1,0 +1,200 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="ValClips turns long gameplay sessions into ranked, evidence-grounded stories: it finds them, previews the edit, and publishes nothing until you have reviewed it. In private development.">
+  <link rel="canonical" href="https://allusions-site.pages.dev/valclips/">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="ValClips · the story in your session">
+  <meta property="og:description" content="Long gameplay sessions in, ranked, evidence-grounded stories out. In private development.">
+  <meta property="og:url" content="https://allusions-site.pages.dev/valclips/">
+  <meta name="twitter:card" content="summary">
+  <meta name="theme-color" content="#141719">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'self'; font-src 'self'; img-src 'self'; connect-src 'none'; media-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'">
+  <title>ValClips · the story in your session</title>
+  <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/valclips/valclips.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="bar">
+    <div class="wrap bar-row">
+      <p class="name"><a href="/valclips/">ValClips</a> <span>by <a href="/">ALLUSIONS</a></span></p>
+      <nav aria-label="ValClips sections">
+        <a href="#stories">Stories</a>
+        <a href="#edit">The edit</a>
+        <a href="#ready">Before it's published</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="reel" aria-labelledby="reel-title">
+      <div class="wrap reel-grid">
+        <div class="reel-copy">
+          <h1 id="reel-title">You play. ValClips finds the story.</h1>
+          <p class="lede">ValClips reads a whole gameplay session, ranks the moments that make a story, previews the edit, and lets you choose how it should feel. Nothing is published until you have reviewed it, and every claim in a clip has to be backed by what was on screen.</p>
+          <p class="state">In private development · no public download yet · Windows</p>
+
+          <ol class="reduction" aria-label="One real session, reduced to one edit, drawn to scale">
+            <li class="r-session"><strong>57<span> min</span></strong><span class="r-label">played in one sitting</span><span class="r-bar" aria-hidden="true"></span></li>
+            <li class="r-stories"><strong>37.3<span> s</span></strong><span class="r-label">the 3 stories worth making, together</span><span class="r-bar" aria-hidden="true"></span></li>
+            <li class="r-edit"><strong>20.0<span> s</span></strong><span class="r-label">the first story's edit</span><span class="r-bar" aria-hidden="true"></span></li>
+          </ol>
+          <p class="reduction-note">Bars to scale. From Saturday 12 September: of 21 moments considered, 1 was already published and 14 were not worth making; the three stories run 20.0, 7.9 and 9.4 seconds.</p>
+        </div>
+
+        <figure class="output output-lead">
+          <img src="/valclips/captures/vc-edit-payoff-810.webp" srcset="/valclips/captures/vc-edit-payoff-540.webp 540w, /valclips/captures/vc-edit-payoff-810.webp 810w" sizes="(min-width: 64rem) 22rem, 60vw" width="810" height="1440" alt="A frame from the finished vertical edit: the payoff beat, first-person gameplay with the rifle raised, the HUD and a VALORANT // HIGHLIGHT brand row, framed 9:16." fetchpriority="high">
+          <figcaption>The real rendered edit, at <span class="machine">00:18</span> of <span class="machine">00:20</span>. One name tag blurred.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="stories" id="stories" aria-labelledby="stories-title">
+      <div class="wrap">
+        <div class="step-head at-2">
+          <span class="progress" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span>
+          <h2 id="stories-title">Stories first, ranked.</h2>
+          <p>The session is one sitting across your recordings. The Director ranks what is worth making and says why, before you ever open a file.</p>
+        </div>
+
+        <ol class="ranked">
+          <li>
+            <span class="rank" aria-hidden="true">1</span>
+            <div><h3>Same opponent, 5 times</h3><p>5 separate kills on the same opponent across 5 moments of one match</p></div>
+            <p class="len"><span class="machine">20.0s</span> · 5 beats</p>
+          </li>
+          <li>
+            <span class="rank" aria-hidden="true">2</span>
+            <div><h3>2 kills in 2 seconds</h3><p>Highlight · 1 beat</p></div>
+            <p class="len"><span class="machine">7.9s</span></p>
+          </li>
+          <li>
+            <span class="rank" aria-hidden="true">3</span>
+            <div><h3>2 kills in 4 seconds</h3><p>Highlight · 1 beat</p></div>
+            <p class="len"><span class="machine">9.4s</span></p>
+          </li>
+        </ol>
+
+        <figure class="frame">
+          <picture>
+            <source media="(max-width: 47.99rem)" srcset="/valclips/captures/vc-session-phone.webp" width="645" height="1398">
+            <img src="/valclips/captures/vc-session-1600.webp" srcset="/valclips/captures/vc-session-800.webp 800w, /valclips/captures/vc-session-1600.webp 1600w" sizes="(min-width: 90rem) 84rem, 94vw" width="1600" height="900" alt="The ValClips Session Director headed Find the story in your session: a 57-minute sitting with 2 recordings and 21 moments considered, and the same three ranked stories, each with its length, beats and the note Rendered, needs your review." loading="lazy" decoding="async">
+          </picture>
+          <figcaption>The same ranking in the Session Director. Captured 24 Sep 2026 from build <span class="machine">83568e4</span>; player names blurred. On a phone, the Director's own phone layout.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="editor" id="edit" aria-labelledby="edit-title">
+      <div class="wrap">
+        <h2 id="edit-title" class="editor-title">One story, from preview to publish.</h2>
+      </div>
+      <div class="wrap editor-grid">
+        <div class="edit-stack" role="group" aria-label="Three beats of the finished edit">
+          <figure class="output beat beat-2">
+            <img src="/valclips/captures/vc-edit-beat2-810.webp" srcset="/valclips/captures/vc-edit-beat2-540.webp 540w, /valclips/captures/vc-edit-beat2-810.webp 810w" sizes="(min-width: 64rem) 20rem, 30vw" width="810" height="1440" alt="Beat 2 of the finished edit at 00:06: a corridor with an opponent in the distance." loading="lazy" decoding="async">
+            <figcaption><span class="machine">00:06</span> · beat 2</figcaption>
+          </figure>
+          <figure class="output beat beat-3">
+            <img src="/valclips/captures/vc-edit-beat3-810.webp" srcset="/valclips/captures/vc-edit-beat3-540.webp 540w, /valclips/captures/vc-edit-beat3-810.webp 810w" sizes="(min-width: 64rem) 20rem, 30vw" width="810" height="1440" alt="Beat 3 of the finished edit at 00:10: a kill on the same opponent, shown by the skull marker." loading="lazy" decoding="async">
+            <figcaption><span class="machine">00:10</span> · beat 3</figcaption>
+          </figure>
+          <figure class="output beat beat-5">
+            <img src="/valclips/captures/vc-edit-payoff-810.webp" srcset="/valclips/captures/vc-edit-payoff-540.webp 540w, /valclips/captures/vc-edit-payoff-810.webp 810w" sizes="(min-width: 64rem) 20rem, 30vw" width="810" height="1440" alt="The payoff beat of the finished edit at 00:18." loading="lazy" decoding="async">
+            <figcaption><span class="machine">00:18</span> · payoff</figcaption>
+          </figure>
+        </div>
+
+        <div class="edit-steps">
+          <article class="edit-step step-preview" id="preview" aria-labelledby="preview-title">
+            <div class="step-head at-3">
+              <span class="progress" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span>
+              <h3 id="preview-title">Preview the actual edit.</h3>
+              <p>The preview is the rendered edit, not a mock-up of one. Move the playhead or pick a beat to check each cut, with the shape of the edit laid out in time underneath.</p>
+            </div>
+            <figure class="frame">
+              <picture>
+                <source media="(max-width: 47.99rem)" srcset="/valclips/captures/vc-preview-phone.webp" width="645" height="1398">
+                <img src="/valclips/captures/vc-preview-1600.webp" srcset="/valclips/captures/vc-preview-800.webp 800w, /valclips/captures/vc-preview-1600.webp 1600w" sizes="(min-width: 64rem) 52vw, 94vw" width="1600" height="900" alt="The Preview step: the story Same opponent, 5 times, its 20-second vertical rendered edit paused at 6 seconds, the other stories in a rail on the left, and five beats laid out along a timeline below." loading="lazy" decoding="async">
+              </picture>
+              <figcaption>Preview, paused on beat 2. The footage is the maker's own gameplay.</figcaption>
+            </figure>
+          </article>
+
+          <article class="edit-step step-treatment" id="treatment" aria-labelledby="treatment-title">
+            <div class="step-head at-4">
+              <span class="progress" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span>
+              <h3 id="treatment-title">Choose how it breathes, then render.</h3>
+              <p>A treatment changes pacing, not the facts: every treatment keeps the same verified kills. ValClips renders the treatment you choose.</p>
+            </div>
+            <dl class="treatments">
+              <div><dt>As planned</dt><dd>Your profile's own pacing, with the kill-feed proof and brand row.</dd></div>
+              <div><dt>Clean</dt><dd>Let the play carry it. No caption or brand row; the real kill-feed proof stays.</dd></div>
+              <div><dt>More Energy</dt><dd>Tighter lead-in, shorter tails, less air between beats. Hard cuts; no added effects.</dd></div>
+              <div><dt>More Gameplay</dt><dd>More context before each beat and after the finish. No caption over the action.</dd></div>
+            </dl>
+            <figure class="frame">
+              <picture>
+                <source media="(max-width: 47.99rem)" srcset="/valclips/captures/vc-treatment-phone.webp" width="449" height="1112">
+                <img src="/valclips/captures/vc-treatment-1600.webp" srcset="/valclips/captures/vc-treatment-800.webp 800w, /valclips/captures/vc-treatment-1600.webp 1600w" sizes="(min-width: 64rem) 52vw, 94vw" width="1600" height="900" alt="The Treatment step, headed Give it your pace: As planned selected among Clean, More Energy and More Gameplay, beside a source frame of the story marked Source recording, not yet the edit, and the pacing, duration, caption and brand-row settings." loading="lazy" decoding="async">
+              </picture>
+              <figcaption>Treatments beside a source frame of the recording. Names in the in-game kill feed are blurred.</figcaption>
+            </figure>
+          </article>
+
+          <article class="edit-step step-ready" id="ready" aria-labelledby="ready-title">
+            <div class="step-head at-5">
+              <span class="progress" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span>
+              <h3 id="ready-title">Nothing is published before you check it.</h3>
+              <p>The story, its title, its proof and where it goes are reviewed together. A finished render is not an approval: until you have reviewed it, ValClips will not publish, and the checks run again on the exact file right before any upload.</p>
+            </div>
+            <figure class="frame">
+              <picture>
+                <source media="(max-width: 47.99rem)" srcset="/valclips/captures/vc-ready-phone.webp" width="645" height="1398">
+                <img src="/valclips/captures/vc-ready-1600.webp" srcset="/valclips/captures/vc-ready-800.webp 800w, /valclips/captures/vc-ready-1600.webp 1600w" sizes="(min-width: 64rem) 52vw, 94vw" width="1600" height="702" alt="The Ready step, headed Ready for the final check: the title, treatment and length on the left with the warning Review the render before it can be ready, and a publication handoff list on the right: rendered and measured, kills verified as yours, your review not done yet, and the destination's sign-in needing renewal." loading="lazy" decoding="async">
+              </picture>
+              <figcaption>The real state of this story: rendered and verified, not yet reviewed, so not publishable. The channel name and file path are blurred.</figcaption>
+            </figure>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="plain" aria-labelledby="plain-title">
+      <div class="wrap plain-grid">
+        <h2 id="plain-title">What it is, and what it is not</h2>
+        <div class="plain-cols">
+          <div>
+            <h3>It is</h3>
+            <ul>
+              <li>An editor that works on the recordings your capture tool already makes. It does not record.</li>
+              <li>Local: sessions are read, ranked and rendered on your PC.</li>
+              <li>Strict about proof: a kill counts only when the evidence ties it to your accounts.</li>
+            </ul>
+          </div>
+          <div>
+            <h3>It is not</h3>
+            <ul>
+              <li>A replacement for your recorder or clipping tool.</li>
+              <li>A promise of views. It finds stories worth making; it does not predict how they will do.</li>
+              <li>Available yet. There is no public download or public repository.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="foot">
+    <div class="wrap foot-row">
+      <p>ValClips · status as of 24 September 2026 · <a href="/valclips/captures/PROVENANCE.md">How these captures were made</a></p>
+      <p>VALORANT is a trademark of Riot Games. ValClips is not affiliated with or endorsed by Riot Games.</p>
+      <p>Built by <a href="/">ALLUSIONS</a> · independent software by Jidan</p>
+    </div>
+  </footer>
+</body>
+</html>
