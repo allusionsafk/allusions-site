@@ -59,7 +59,7 @@ if (Test-Path -LiteralPath $indexPath) {
     Assert-True ($html -match 'AFK AI' -and $html -match 'DemiMedia' -and $html -match 'ValClips') 'Project register is incomplete'
     Assert-True ($html -match 'Beta · <span class="machine">0\.2\.0-rc1</span> prerelease' -and $html -match 'In development · no release yet' -and $html -match 'Private development · no public download') 'Product statuses are incorrect'
     Assert-True ($html -match 'https://localai-windows-starter-site\.allusionsafk\.workers\.dev/') 'AFK destination is incorrect'
-    Assert-True ($html -match 'https://github\.com/allusionsafk/adaptive-media') 'DemiMedia destination is incorrect'
+    Assert-True ($html -match 'href="/demimedia/"') 'DemiMedia destination must be its product page'
     Assert-True ($html -notmatch 'Adaptive Media|Demi Player|Allusions — Independent software studio') 'Stale public identity text remains in index.html'
     Assert-True ($html -notmatch '(?i)friend beta') 'Retired Friend Beta terminology must not appear'
     Assert-True ($html -notmatch '<script(?:\s|>)') 'JavaScript is not permitted in the production candidate'
@@ -120,6 +120,32 @@ if (Test-Path -LiteralPath $headersPath) {
     Assert-True ($headers -notmatch "unsafe-inline|unsafe-eval") 'CSP must not use unsafe-inline or unsafe-eval'
     Assert-True ($headers -match 'X-Content-Type-Options:\s*nosniff') 'nosniff header is missing'
     Assert-True ($headers -match 'Referrer-Policy:\s*no-referrer') 'Referrer policy is missing'
+}
+
+# Product pages hosted in this repository: each is a real, separate page with its own stylesheet,
+# real captures listed in its own PROVENANCE.md, and the same CSP and no-script rules.
+foreach ($product in @(@{ Dir = 'demimedia'; Title = 'DemiMedia' })) {
+    $page = Join-Path $siteRoot "$($product.Dir)/index.html"
+    Assert-True (Test-Path -LiteralPath $page) "$($product.Title) page is missing"
+    if (-not (Test-Path -LiteralPath $page)) { continue }
+    $p = Get-Content -LiteralPath $page -Raw
+    $prov = Join-Path $siteRoot "$($product.Dir)/captures/PROVENANCE.md"
+    $provText = if (Test-Path -LiteralPath $prov) { Get-Content -LiteralPath $prov -Raw } else { '' }
+    Assert-True ([regex]::Matches($p, '<h1(?:\s|>)').Count -eq 1) "$($product.Title) page must have one H1"
+    Assert-True ($p -match "default-src 'none'") "$($product.Title) page must carry the default-deny CSP"
+    Assert-True ($p -notmatch '<script(?:\s|>)|\sstyle=') "$($product.Title) page must not use scripts or inline styles"
+    Assert-True ($p -match ('href="/{0}/{0}\.css"' -f $product.Dir)) "$($product.Title) page must use its own stylesheet"
+    Assert-True ($p -match 'href="/"') "$($product.Title) page must link back to the studio"
+    Assert-True ($p -match 'status as of \d{1,2} \w+ \d{4}') "$($product.Title) page must date its status"
+    foreach ($figure in [regex]::Matches($p, '(?s)<figure[^>]*>.*?</figure>')) {
+        $img = [regex]::Match($figure.Value, '<img[^>]+>').Value
+        Assert-True ($img -match 'alt="[^"]{40,}"' -and $img -match 'width="\d+"' -and $img -match 'height="\d+"') "$($product.Title) capture needs alt text and dimensions: $img"
+        Assert-True ($figure.Value -match '<figcaption>') "$($product.Title) capture needs a caption"
+        foreach ($file in [regex]::Matches($figure.Value, "/$($product.Dir)/captures/([a-z-]+?)-(?:\d{3,4}|phone)\.webp")) {
+            Assert-True (Test-Path -LiteralPath (Join-Path $siteRoot $file.Value.TrimStart('/'))) "Missing capture file $($file.Value)"
+            Assert-True ($provText -match [regex]::Escape("$($file.Groups[1].Value)-*.webp")) "$($file.Groups[1].Value) has no provenance entry"
+        }
+    }
 }
 
 $textFiles = Get-ChildItem -LiteralPath $siteRoot -Recurse -File |
