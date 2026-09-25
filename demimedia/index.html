@@ -63,7 +63,7 @@
       <div class="wrap chapter-grid">
         <div class="chapter-copy">
           <h2 id="choose-title">Choose the result, not the settings.</h2>
-          <p>Pick what you want from the picture: preserve the original look, improve detail, make motion smoother, clean up compression and banding, or a balanced improvement. Then say how strong, and whether to favour efficiency or quality.</p>
+          <p>Pick what you want from the picture: preserve the original look, improve detail, make motion smoother, clean up compression and banding, or a balanced improvement. Smart Fill can also reframe eligible video using source pixels only. Then say how strong, and whether to favour efficiency or quality.</p>
           <p>There are four starting points: Automatic, Reference, Enhanced and Compatibility. The implementation parameters stay one level deeper.</p>
         </div>
         <figure class="screen">
@@ -123,20 +123,21 @@
         <h2 id="credits-title">What it does, and what it does not claim</h2>
         <div class="credit">
           <h3>Plays through</h3>
-          <p>mpv, libplacebo and FFmpeg, with MPC-BE as a compatibility fallback</p>
+          <p>mpv, libplacebo and FFmpeg; automatic MPC-BE fallback is unavailable in the current build</p>
           <p>Hardware decoding on paths where it is supported</p>
           <p>Decoded PCM as the safe audio default; HDMI bitstream optional</p>
         </div>
         <div class="credit">
           <h3>Offers, never silently</h3>
-          <p>NVIDIA RTX Video Super Resolution and RTX Video HDR, where the hardware supports them</p>
-          <p>Dolby Vision Profile 7 to Profile 8.1 conversion for compatibility, where supported, with bounded temporary space</p>
+          <p>NVIDIA RTX Video Super Resolution and RTX Video HDR, where the hardware and active display path support them</p>
+          <p>Source-only Smart Fill for eligible video, with observed fallback to original framing when analysis is not trustworthy</p>
+          <p>Qualified native Dolby Vision Profile 7 processing and Profile 7 to Profile 8.1 conversion for compatibility, with delivery claims kept separate from requests</p>
         </div>
         <div class="credit credit-not">
           <h3>Does not claim</h3>
           <p>Universal Dolby Vision or HDR support on every display</p>
-          <p>Native Profile 7 enhancement-layer passthrough</p>
-          <p>AI frame generation; smoother motion blends real frames</p>
+          <p>Proprietary Dolby Vision display signalling unless the active path actually proves it</p>
+          <p>AI frame generation or generated scenery; smoother motion currently blends real frames and Smart Fill only reframes source pixels</p>
           <p>That a requested enhancement was delivered before the player reports it</p>
         </div>
       </div>
@@ -157,7 +158,7 @@
 
   <footer class="foot">
     <div class="wrap foot-row">
-      <p>DemiMedia · status as of 24 September 2026 · <a href="/demimedia/captures/PROVENANCE.md">How these captures were made</a></p>
+      <p>DemiMedia · status as of 25 September 2026 · <a href="/demimedia/captures/PROVENANCE.md">How these captures were made</a></p>
       <p>Built by <a href="/">ALLUSIONS</a> · independent software by Jidan</p>
     </div>
   </footer>
