@@ -1,75 +1,376 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-09-14T10:47:53.6908449-04:00",
-  "title": "Design System: Allusions studio site",
+  "generatedAt": "2026-09-24T12:00:00-04:00",
+  "title": "Design System: ALLUSIONS studio site",
   "extensions": {
     "colorMeta": {
-      "ground": { "role": "neutral", "displayName": "Warm Ground", "canonical": "oklch(94.9% 0.012 81)", "tonalRamp": ["oklch(15% 0.012 81)", "oklch(27% 0.012 81)", "oklch(39% 0.012 81)", "oklch(51% 0.012 81)", "oklch(63% 0.012 81)", "oklch(75% 0.012 81)", "oklch(87% 0.012 81)", "oklch(95% 0.012 81)"] },
-      "accent-rust": { "role": "primary", "displayName": "Rust Signal", "canonical": "oklch(45% 0.115 38)", "tonalRamp": ["oklch(15% 0.115 38)", "oklch(27% 0.115 38)", "oklch(39% 0.115 38)", "oklch(51% 0.115 38)", "oklch(63% 0.115 38)", "oklch(75% 0.115 38)", "oklch(87% 0.115 38)", "oklch(95% 0.115 38)"] },
-      "night": { "role": "neutral", "displayName": "Night Field", "canonical": "oklch(18% 0.009 52)", "tonalRamp": ["oklch(15% 0.009 52)", "oklch(27% 0.009 52)", "oklch(39% 0.009 52)", "oklch(51% 0.009 52)", "oklch(63% 0.009 52)", "oklch(75% 0.009 52)", "oklch(87% 0.009 52)", "oklch(95% 0.009 52)"] }
+      "paper": {
+        "role": "neutral",
+        "displayName": "Paper",
+        "canonical": "oklch(96.4% 0 0)",
+        "tonalRamp": [
+          "oklch(15% 0 0)",
+          "oklch(27% 0 0)",
+          "oklch(39% 0 0)",
+          "oklch(51% 0 0)",
+          "oklch(63% 0 0)",
+          "oklch(75% 0 0)",
+          "oklch(87% 0 0)",
+          "oklch(96.4% 0 0)"
+        ]
+      },
+      "ink": {
+        "role": "neutral",
+        "displayName": "Ink",
+        "canonical": "oklch(17% 0 0)",
+        "tonalRamp": [
+          "oklch(15% 0 0)",
+          "oklch(17% 0 0)",
+          "oklch(27% 0 0)",
+          "oklch(39% 0 0)",
+          "oklch(51% 0 0)",
+          "oklch(63% 0 0)",
+          "oklch(75% 0 0)",
+          "oklch(87% 0 0)"
+        ]
+      },
+      "muted": {
+        "role": "neutral",
+        "displayName": "Pencil Grey",
+        "canonical": "oklch(44% 0 0)",
+        "tonalRamp": [
+          "oklch(15% 0 0)",
+          "oklch(27% 0 0)",
+          "oklch(39% 0 0)",
+          "oklch(44% 0 0)",
+          "oklch(51% 0 0)",
+          "oklch(63% 0 0)",
+          "oklch(75% 0 0)",
+          "oklch(87% 0 0)"
+        ]
+      },
+      "rule": {
+        "role": "neutral",
+        "displayName": "Hairline Grey",
+        "canonical": "oklch(80% 0 0)",
+        "tonalRamp": [
+          "oklch(15% 0 0)",
+          "oklch(27% 0 0)",
+          "oklch(39% 0 0)",
+          "oklch(51% 0 0)",
+          "oklch(63% 0 0)",
+          "oklch(75% 0 0)",
+          "oklch(80% 0 0)",
+          "oklch(95% 0 0)"
+        ]
+      },
+      "rule-strong": {
+        "role": "neutral",
+        "displayName": "Ink Rule",
+        "canonical": "oklch(17% 0 0)",
+        "tonalRamp": [
+          "oklch(15% 0 0)",
+          "oklch(17% 0 0)",
+          "oklch(27% 0 0)",
+          "oklch(39% 0 0)",
+          "oklch(51% 0 0)",
+          "oklch(63% 0 0)",
+          "oklch(75% 0 0)",
+          "oklch(87% 0 0)"
+        ]
+      },
+      "night": {
+        "role": "neutral",
+        "displayName": "Night",
+        "canonical": "oklch(14.5% 0 0)",
+        "tonalRamp": [
+          "oklch(14.5% 0 0)",
+          "oklch(27% 0 0)",
+          "oklch(39% 0 0)",
+          "oklch(51% 0 0)",
+          "oklch(63% 0 0)",
+          "oklch(75% 0 0)",
+          "oklch(87% 0 0)",
+          "oklch(95% 0 0)"
+        ]
+      },
+      "night-ink": {
+        "role": "neutral",
+        "displayName": "Night Ink",
+        "canonical": "oklch(95% 0 0)",
+        "tonalRamp": [
+          "oklch(15% 0 0)",
+          "oklch(27% 0 0)",
+          "oklch(39% 0 0)",
+          "oklch(51% 0 0)",
+          "oklch(63% 0 0)",
+          "oklch(75% 0 0)",
+          "oklch(87% 0 0)",
+          "oklch(95% 0 0)"
+        ]
+      },
+      "night-muted": {
+        "role": "neutral",
+        "displayName": "Night Pencil",
+        "canonical": "oklch(74% 0 0)",
+        "tonalRamp": [
+          "oklch(15% 0 0)",
+          "oklch(27% 0 0)",
+          "oklch(39% 0 0)",
+          "oklch(51% 0 0)",
+          "oklch(63% 0 0)",
+          "oklch(74% 0 0)",
+          "oklch(87% 0 0)",
+          "oklch(95% 0 0)"
+        ]
+      },
+      "night-rule": {
+        "role": "neutral",
+        "displayName": "Night Hairline",
+        "canonical": "oklch(34% 0 0)",
+        "tonalRamp": [
+          "oklch(15% 0 0)",
+          "oklch(27% 0 0)",
+          "oklch(34% 0 0)",
+          "oklch(51% 0 0)",
+          "oklch(63% 0 0)",
+          "oklch(75% 0 0)",
+          "oklch(87% 0 0)",
+          "oklch(95% 0 0)"
+        ]
+      },
+      "ground-afk": {
+        "role": "tertiary",
+        "displayName": "AFK Warm Paper (product ground, plate mat only)",
+        "canonical": "oklch(93.2% 0.017 85)",
+        "tonalRamp": [
+          "oklch(15% 0.017 85)",
+          "oklch(27% 0.017 85)",
+          "oklch(39% 0.017 85)",
+          "oklch(51% 0.017 85)",
+          "oklch(63% 0.017 85)",
+          "oklch(75% 0.017 85)",
+          "oklch(87% 0.017 85)",
+          "oklch(93.2% 0.017 85)"
+        ]
+      },
+      "ground-demimedia": {
+        "role": "tertiary",
+        "displayName": "DemiMedia Cinema Black (product ground, plate mat only)",
+        "canonical": "oklch(14.7% 0.007 236)",
+        "tonalRamp": [
+          "oklch(14.7% 0.007 236)",
+          "oklch(27% 0.007 236)",
+          "oklch(39% 0.007 236)",
+          "oklch(51% 0.007 236)",
+          "oklch(63% 0.007 236)",
+          "oklch(75% 0.007 236)",
+          "oklch(87% 0.007 236)",
+          "oklch(95% 0.007 236)"
+        ]
+      },
+      "ground-valclips": {
+        "role": "tertiary",
+        "displayName": "ValClips Charcoal (product ground, plate mat only)",
+        "canonical": "oklch(20.2% 0.006 237)",
+        "tonalRamp": [
+          "oklch(15% 0.006 237)",
+          "oklch(20.2% 0.006 237)",
+          "oklch(39% 0.006 237)",
+          "oklch(51% 0.006 237)",
+          "oklch(63% 0.006 237)",
+          "oklch(75% 0.006 237)",
+          "oklch(87% 0.006 237)",
+          "oklch(95% 0.006 237)"
+        ]
+      }
     },
     "typographyMeta": {
-      "display": { "displayName": "Display", "purpose": "Hero, project names, and the Standard statement." },
-      "body": { "displayName": "Body", "purpose": "Direct explanations and project descriptions." },
-      "evidence": { "displayName": "Evidence", "purpose": "Status, sequence, indexing, and proof only." }
+      "display": {
+        "displayName": "Wordmark",
+        "purpose": "The ALLUSIONS wordmark only; size derived from the shell so the word spans the measure."
+      },
+      "headline": {
+        "displayName": "Product name",
+        "purpose": "Product titles (h3) and, at the same family, the 404 heading."
+      },
+      "headline-night": {
+        "displayName": "Standard heading",
+        "purpose": "The working-standard heading on the Night band."
+      },
+      "title": {
+        "displayName": "Contents entry",
+        "purpose": "Product names in the contents line beneath the opening."
+      },
+      "lede": {
+        "displayName": "Lede",
+        "purpose": "The two-line studio statement under the wordmark."
+      },
+      "job": {
+        "displayName": "Job line",
+        "purpose": "Each product's one-line job, semibold text face."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Prose held to the 38rem measure."
+      },
+      "label": {
+        "displayName": "Label",
+        "purpose": "Imprint, navigation, status words, fact rows, footer."
+      },
+      "caption": {
+        "displayName": "Caption",
+        "purpose": "Plate provenance: date, build, redactions."
+      },
+      "machine": {
+        "displayName": "Machine",
+        "purpose": "Literal version strings and commit IDs only, inline at 0.86em."
+      }
     },
     "shadows": [],
     "motion": [
-      { "name": "reduced-motion", "value": "0.01ms", "purpose": "Removes transitions and repeated animation when reduced motion is requested." }
+      {
+        "name": "settle",
+        "value": "@keyframes settle { from { clip-path: inset(4% 3% 4% 3%); transform: translateY(1.5rem); } to { clip-path: inset(0); transform: none; } } animation: settle linear both; animation-timeline: view(); animation-range: entry 5% cover 28%;",
+        "purpose": "Each plate capture settles into its frame as it scrolls into view. Only under prefers-reduced-motion: no-preference and @supports (animation-timeline: view()); content is fully visible without it."
+      },
+      {
+        "name": "underline-weight",
+        "value": "text-decoration-thickness 140ms ease-out",
+        "purpose": "Link underline thickens from 1px to 2px on hover."
+      }
     ],
     "breakpoints": [
-      { "name": "register-collapse", "value": "820px" },
-      { "name": "mobile", "value": "520px" }
+      {
+        "name": "phone",
+        "value": "max-width: 39.99rem"
+      },
+      {
+        "name": "footer-row",
+        "value": "min-width: 48rem"
+      },
+      {
+        "name": "twelve-column",
+        "value": "min-width: 64rem"
+      },
+      {
+        "name": "short-desktop",
+        "value": "min-width: 64rem and max-height: 50rem"
+      }
     ]
   },
   "components": [
     {
-      "name": "Primary navigation",
+      "name": "Masthead navigation",
       "kind": "nav",
-      "description": "Compact text navigation with generous keyboard targets.",
-      "html": "<nav class=\"ds-nav\"><a href=\"#projects\">Projects</a><a href=\"#standard\">Standard</a></nav>",
-      "css": ".ds-nav { display:flex; gap:1.25rem; } .ds-nav a { display:inline-flex; min-height:44px; align-items:center; color:var(--ink); font:650 .88rem system-ui; text-underline-offset:.28em; } .ds-nav a:hover { color:var(--accent); } .ds-nav a:focus-visible { outline:3px solid var(--accent); outline-offset:4px; }"
+      "refersTo": "nav-link",
+      "description": "Imprint at left, three quiet text links at right over a 1px ink rule; underline appears on hover.",
+      "html": "<header class=\"ds-masthead\"><p class=\"ds-imprint\">Independent software by Jidan</p><nav><a href=\"#\">Products</a><a href=\"#\">Standard</a><a href=\"#\">GitHub</a></nav></header>",
+      "css": ".ds-masthead { display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:.25rem 1.5rem; padding-block:.5rem; border-bottom:1px solid oklch(17% 0 0); background:oklch(96.4% 0 0); color:oklch(17% 0 0); font-family:'Segoe UI Variable Text','Segoe UI',system-ui,sans-serif; } .ds-imprint { margin:0; font-size:.9375rem; color:oklch(44% 0 0); } .ds-masthead nav { display:flex; flex-wrap:wrap; gap:0 1.5rem; } .ds-masthead nav a { display:inline-flex; align-items:center; min-height:44px; font-size:.9375rem; color:inherit; text-decoration-line:underline; text-decoration-thickness:1px; text-underline-offset:.22em; text-decoration-color:transparent; transition:text-decoration-thickness 140ms ease-out; } .ds-masthead nav a:hover { text-decoration-color:currentColor; text-decoration-thickness:2px; } .ds-masthead nav a:focus-visible { outline:2px solid oklch(17% 0 0); outline-offset:4px; }"
     },
     {
-      "name": "Status label",
-      "kind": "chip",
-      "description": "Explicit product maturity in a compact evidence pill.",
-      "html": "<span class=\"ds-status\">In development</span>",
-      "css": ".ds-status { display:inline-flex; min-height:2rem; align-items:center; padding:0 .65rem; border:1px solid var(--ink); border-radius:999px; color:var(--ink); font:600 .72rem 'IBM Plex Mono',monospace; letter-spacing:.075em; text-transform:uppercase; }"
+      "name": "Contents line",
+      "kind": "custom",
+      "refersTo": "contents-entry",
+      "description": "Publisher's contents: each product name in display type with its maturity as a plain muted status word.",
+      "html": "<ul class=\"ds-contents\"><li><a href=\"#\">AFK AI</a> <span>Beta</span></li><li><a href=\"#\">DemiMedia</a> <span>In development</span></li><li><a href=\"#\">ValClips</a> <span>Private development</span></li></ul>",
+      "css": ".ds-contents { list-style:none; margin:0; padding:0; display:flex; flex-wrap:wrap; gap:.25rem 2.25rem; background:oklch(96.4% 0 0); color:oklch(17% 0 0); } .ds-contents li { display:inline-flex; align-items:baseline; gap:.6rem; } .ds-contents a { display:inline-flex; align-items:center; min-height:44px; font-family:'Bricolage Grotesque','Segoe UI Variable Display','Segoe UI',system-ui,sans-serif; font-weight:560; font-size:1.25rem; letter-spacing:-.01em; color:inherit; text-decoration-thickness:1px; text-underline-offset:.22em; transition:text-decoration-thickness 140ms ease-out; } .ds-contents a:hover { text-decoration-thickness:2px; } .ds-contents a:focus-visible { outline:2px solid oklch(17% 0 0); outline-offset:4px; } .ds-contents span { color:oklch(44% 0 0); font-family:'Segoe UI Variable Text','Segoe UI',system-ui,sans-serif; font-size:.9375rem; }"
     },
     {
-      "name": "Project destination",
+      "name": "Destination link",
       "kind": "button",
-      "description": "A text-first destination link with rust underline detail.",
-      "html": "<a class=\"ds-project-link\" href=\"#\">Visit the product site</a>",
-      "css": ".ds-project-link { display:inline-flex; min-height:44px; align-items:center; color:var(--ink); font:700 .91rem system-ui; text-decoration-color:var(--accent); text-underline-offset:.28em; } .ds-project-link:hover { color:var(--accent); } .ds-project-link:focus-visible { outline:3px solid var(--accent); outline-offset:4px; }"
+      "refersTo": "destination-link",
+      "description": "The product's authoritative destination as an underlined semibold text link; a product without one states so plainly, unlinked.",
+      "html": "<p class=\"ds-links\"><a href=\"#\">DemiMedia development on GitHub</a></p><p class=\"ds-links\"><span class=\"ds-unlinked\">No public page yet</span></p>",
+      "css": ".ds-links { margin:.5rem 0 0; font-family:'Segoe UI Variable Text','Segoe UI',system-ui,sans-serif; font-size:1.0625rem; font-weight:600; color:oklch(17% 0 0); } .ds-links a { color:inherit; text-decoration-line:underline; text-decoration-thickness:1px; text-underline-offset:.22em; transition:text-decoration-thickness 140ms ease-out; } .ds-links a:hover { text-decoration-thickness:2px; } .ds-links a:focus-visible { outline:2px solid oklch(17% 0 0); outline-offset:4px; } .ds-unlinked { color:oklch(44% 0 0); font-weight:400; }"
     },
     {
-      "name": "Project register row",
+      "name": "Fact list",
       "kind": "custom",
-      "description": "An asymmetric ruled row for role, state, evidence, and destination.",
-      "html": "<article class=\"ds-project\"><span>01 / AFK</span><div><h3>AFK AI</h3><p>Local AI for Windows.</p></div><strong>Beta</strong></article>",
-      "css": ".ds-project { display:grid; grid-template-columns:6rem 1fr 15rem; gap:2rem; padding:2.5rem 0; border-bottom:1px solid var(--rule); color:var(--ink); } .ds-project h3 { margin:0; font:520 4rem/.94 'Bricolage Grotesque',sans-serif; letter-spacing:-.038em; } .ds-project p { margin:.6rem 0 0; }"
+      "description": "Two-column term/value rows divided by hairline rules; the version rides in a machine span.",
+      "html": "<dl class=\"ds-facts\"><div><dt>Status</dt><dd>Beta · <span class=\"ds-machine\">0.2.0-rc1</span> prerelease</dd></div><div><dt>Runs on</dt><dd>Windows 11 x64</dd></div></dl>",
+      "css": ".ds-facts { display:grid; margin:0; border-top:1px solid oklch(80% 0 0); background:oklch(96.4% 0 0); color:oklch(17% 0 0); font-family:'Segoe UI Variable Text','Segoe UI',system-ui,sans-serif; } .ds-facts div { display:grid; grid-template-columns:7.5rem 1fr; gap:1rem; padding-block:.6rem; border-bottom:1px solid oklch(80% 0 0); font-size:.9375rem; } .ds-facts dt { color:oklch(44% 0 0); } .ds-facts dd { margin:0; } .ds-machine { font-family:'IBM Plex Mono','Cascadia Mono',Consolas,monospace; font-size:.86em; font-variant-numeric:tabular-nums; letter-spacing:0; white-space:nowrap; }"
     },
     {
-      "name": "Standard principle",
+      "name": "Product plate",
       "kind": "custom",
-      "description": "A dark ruled row pairing a sequence number with a responsibility principle.",
-      "html": "<div class=\"ds-principle\"><span>01</span><p><strong>Observe first.</strong> Measure before acting.</p></div>",
-      "css": ".ds-principle { display:grid; grid-template-columns:3rem 1fr; gap:1rem; padding:1.5rem 0; border-bottom:1px solid var(--night-rule); background:var(--night); color:var(--night-muted); } .ds-principle span { font:400 .72rem 'IBM Plex Mono',monospace; } .ds-principle p { margin:0; } .ds-principle strong { color:var(--night-ink); font-family:'Bricolage Grotesque',sans-serif; }"
+      "refersTo": "plate-demimedia",
+      "description": "A real product capture on its product's own ground mat, with a muted provenance caption; settles into its frame on scroll when motion is allowed.",
+      "html": "<figure class=\"ds-plate\"><div class=\"ds-plate-mat\"><div class=\"ds-plate-window\" role=\"img\" aria-label=\"Product capture\"></div></div><figcaption>A generated test clip playing, 23 Sep 2026. Development build <span class=\"ds-machine\">90e0a87</span>.</figcaption></figure>",
+      "css": ".ds-plate { display:grid; gap:.85rem; margin:0; min-width:0; } .ds-plate-mat { padding:clamp(1.5rem,4vw,4.5rem); background:#080b0d; } .ds-plate-window { aspect-ratio:16/9; background:oklch(30% 0 0); } .ds-plate figcaption { max-width:38rem; color:oklch(44% 0 0); font-family:'Segoe UI Variable Text','Segoe UI',system-ui,sans-serif; font-size:.875rem; line-height:1.5; } .ds-machine { font-family:'IBM Plex Mono','Cascadia Mono',Consolas,monospace; font-size:.86em; font-variant-numeric:tabular-nums; white-space:nowrap; } @media (prefers-reduced-motion: no-preference) { @supports (animation-timeline: view()) { .ds-plate-mat { animation:ds-settle linear both; animation-timeline:view(); animation-range:entry 5% cover 28%; } } } @keyframes ds-settle { from { clip-path:inset(4% 3% 4% 3%); transform:translateY(1.5rem); } to { clip-path:inset(0); transform:none; } }"
+    },
+    {
+      "name": "Working standard",
+      "kind": "custom",
+      "refersTo": "standard",
+      "description": "The single Night reversal: heading at left, ordered principles divided by night hairlines.",
+      "html": "<section class=\"ds-standard\"><h2>The working standard</h2><ol><li><strong>Observe first.</strong> Measure the machine, the file or the recording before acting on it.</li><li><strong>Tell the truth about state.</strong> Requested, planned and observed are different things.</li></ol></section>",
+      "css": ".ds-standard { display:grid; gap:2.25rem; padding:clamp(3.5rem,8vw,7rem) 1.5rem; background:oklch(14.5% 0 0); color:oklch(95% 0 0); font-family:'Segoe UI Variable Text','Segoe UI',system-ui,sans-serif; } .ds-standard h2 { margin:0; font-family:'Bricolage Grotesque','Segoe UI Variable Display','Segoe UI',system-ui,sans-serif; font-weight:540; font-size:clamp(2.2rem,4.4vw,3.75rem); line-height:1; letter-spacing:-.03em; max-width:12ch; } .ds-standard ol { list-style:none; margin:0; padding:0; display:grid; border-top:1px solid oklch(74% 0 0); } .ds-standard li { padding-block:1.1rem; border-bottom:1px solid oklch(34% 0 0); color:oklch(74% 0 0); } .ds-standard strong { color:oklch(95% 0 0); font-weight:600; } .ds-standard :focus-visible { outline:2px solid oklch(95% 0 0); outline-offset:4px; }"
+    },
+    {
+      "name": "Skip link",
+      "kind": "button",
+      "refersTo": "skip-link",
+      "description": "Ink block with paper text, hidden above the viewport until keyboard focus.",
+      "html": "<a class=\"ds-skip\" href=\"#\">Skip to content</a>",
+      "css": ".ds-skip { display:inline-block; padding:.6rem 1rem; background:oklch(17% 0 0); color:oklch(96.4% 0 0); font-family:'Segoe UI Variable Text','Segoe UI',system-ui,sans-serif; text-decoration-line:underline; text-decoration-thickness:1px; text-underline-offset:.22em; } .ds-skip:focus-visible { outline:2px solid oklch(17% 0 0); outline-offset:4px; }"
     }
   ],
   "narrative": {
-    "northStar": "The Responsible Register",
-    "overview": "The site feels like a maker's register enlarged to architectural scale: warm stock, precise rules, oversized grotesque lettering, and machine-readable evidence. Its confidence comes from hierarchy and factual restraint rather than decoration. One near-black section interrupts the page to make the studio standard feel structural, not promotional.",
-    "keyCharacteristics": ["An oversized but controlled ALLUSIONS wordmark.", "A strongly asymmetric project register with visible status and evidence.", "Rust used sparingly for focus, link detail, and directional notation.", "One dark Standard section as the only high-contrast reversal.", "Flat surfaces separated by rules; no cards or decorative shadows."],
-    "rules": [
-      { "name": "The One Reversal Rule", "body": "The Standard section is the only dark surface on the homepage.", "section": "colors" },
-      { "name": "The Evidence Accent Rule", "body": "Rust indicates focus, direction, or interaction; it does not decorate large surfaces.", "section": "colors" },
-      { "name": "The Machinery Speaks Mono Rule", "body": "Only state, sequence, and evidence use monospace.", "section": "typography" },
-      { "name": "The Rule-Built Depth Rule", "body": "Use line weight and spatial rhythm, never cards or shadows, to separate information.", "section": "elevation" }
+    "northStar": "The Publisher's List",
+    "overview": "The studio is typography, hairline rules and white space; the products are the subjects. The frame is fully achromatic (neutral near-white paper, near-black ink, two greys) so that the only colour anywhere on a page is inside a product plate: a real, unretouched capture of the product's own window set on that product's own ground. The page reads as a catalogue of titles with their state, not as a SaaS landing page. There are no feature cards, gradient hero art or uniform product tiles.\n\nScale does the work. The ALLUSIONS wordmark is set as the H1 across the full measure. Product names are large grotesque titles, and everything else is plain Windows UI prose at a comfortable reading size. Depth comes from rules and one dark reversal, never from surfaces lifting off the page. Each product gets its own composition, so the list does not repeat one template three times.",
+    "keyCharacteristics": [
+      "A zero-chroma frame; colour lives only inside the product plates.",
+      "The wordmark is sized from the viewport so it spans the measure.",
+      "Three product compositions, one per product, instead of a repeated tile.",
+      "Rule-built structure: strong ink rules between products and hairline rules inside fact lists.",
+      "One dark reversal (the working standard) on the whole page.",
+      "Mono appears only in short machine spans for versions and commit IDs.",
+      "Each plate settles into its frame as it scrolls into view, but only when the visitor has not asked for reduced motion."
     ],
-    "dos": ["Do preserve the asymmetric register and the single dark reversal.", "Do keep status text explicit and product destinations authoritative.", "Do use strong rules, restrained rust, and visible focus states.", "Do keep all runtime assets self-hosted."],
-    "donts": ["Don't turn projects into equal cards or add dashboard chrome.", "Don't introduce gradients, decorative shadows, remote assets, or third-party scripts.", "Don't use monospace for ordinary prose.", "Don't add unverified downloads, release claims, or private repository links."]
+    "rules": [
+      {
+        "name": "The Colour Lives in the Plates Rule",
+        "body": "Every frame colour has zero chroma. Hue enters a page only through a product's real capture and the product ground around it.",
+        "section": "colors"
+      },
+      {
+        "name": "The One Reversal Rule",
+        "body": "The working-standard section is the only dark band in the frame. Dark product grounds are mats inside a plate, not sections.",
+        "section": "colors"
+      },
+      {
+        "name": "The Machine Span Rule",
+        "body": "Monospace sets only literal machine strings, such as a version number or a commit ID, inline and at 0.86em of the surrounding text. It never sets labels, status words, headings or prose.",
+        "section": "typography"
+      },
+      {
+        "name": "The Wordmark Spans the Measure Rule",
+        "body": "The wordmark's size is derived from the viewport and gutter, not picked from a scale. If the shell or gutter changes, the divisor (4.62) changes with it.",
+        "section": "typography"
+      },
+      {
+        "name": "The Rule-Built Depth Rule",
+        "body": "Separate information with line weight and space. Strong ink rules divide subjects, hairlines divide facts, and nothing is lifted with a shadow or boxed in a card.",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "Do keep every frame colour at zero chroma, and let product colour appear only inside a plate on its product ground.",
+      "Do give each product its own composition on the 12-column grid rather than a shared tile.",
+      "Do caption every plate with date, build ID in a machine span, and any redaction, and log it in the captures provenance file.",
+      "Do state maturity in words (contents line status, Status fact row), and state a missing destination plainly instead of linking nowhere.",
+      "Do keep standalone navigation targets (masthead, contents line, footer) at least 44px tall, and every focus state a 2px ink outline at 4px offset.",
+      "Do gate any motion on `prefers-reduced-motion: no-preference`, with content fully visible without it.",
+      "Do keep the wordmark's size tied to the shell width so it spans the measure."
+    ],
+    "donts": [
+      "Don't add hue to the frame: no tinted neutrals, accent colours or coloured links.",
+      "Don't add cards, box shadows or radius to the frame. Divide with rules.",
+      "Don't add a second dark band. The working standard is the only reversal.",
+      "Don't use monospace outside literal version strings and commit IDs.",
+      "Don't put mock-ups, retouched screens or illustrations in a plate. Plates hold real captures only.",
+      "Don't show status as colour, pills or badges."
+    ]
   }
 }
