@@ -60,6 +60,8 @@ if (Test-Path -LiteralPath $indexPath) {
     Assert-True ($html -match 'Beta · <span class="machine">0\.2\.0-rc1</span> prerelease' -and $html -match 'In development · no release yet' -and $html -match 'Private development · no public download') 'Product statuses are incorrect'
     Assert-True ($html -match 'https://localai-windows-starter-site\.allusionsafk\.workers\.dev/') 'AFK destination is incorrect'
     Assert-True ($html -match 'href="/demimedia/"') 'DemiMedia destination must be its product page'
+    Assert-True ($html -match 'href="/valclips/"') 'ValClips destination must be its product page'
+    Assert-True ($html -notmatch 'github\.com/allusionsafk/valclips') 'The private ValClips repository must not be linked'
     Assert-True ($html -notmatch 'Adaptive Media|Demi Player|Allusions — Independent software studio') 'Stale public identity text remains in index.html'
     Assert-True ($html -notmatch '(?i)friend beta') 'Retired Friend Beta terminology must not appear'
     Assert-True ($html -notmatch '<script(?:\s|>)') 'JavaScript is not permitted in the production candidate'
@@ -124,7 +126,7 @@ if (Test-Path -LiteralPath $headersPath) {
 
 # Product pages hosted in this repository: each is a real, separate page with its own stylesheet,
 # real captures listed in its own PROVENANCE.md, and the same CSP and no-script rules.
-foreach ($product in @(@{ Dir = 'demimedia'; Title = 'DemiMedia' })) {
+foreach ($product in @(@{ Dir = 'demimedia'; Title = 'DemiMedia' }, @{ Dir = 'valclips'; Title = 'ValClips' })) {
     $page = Join-Path $siteRoot "$($product.Dir)/index.html"
     Assert-True (Test-Path -LiteralPath $page) "$($product.Title) page is missing"
     if (-not (Test-Path -LiteralPath $page)) { continue }
