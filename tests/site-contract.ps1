@@ -153,7 +153,7 @@ foreach ($product in @(@{ Dir = 'demimedia'; Title = 'DemiMedia' }, @{ Dir = 'va
 
 $sourcePaths = @(git -C $siteRoot ls-files --cached --others --exclude-standard)
 if ($LASTEXITCODE -ne 0) { throw 'Cannot inventory repository source files.' }
-$textFiles = $sourcePaths | ForEach-Object { Get-Item -LiteralPath (Join-Path $siteRoot $_) } |
+$textFiles = $sourcePaths | ForEach-Object { Get-Item -LiteralPath (Join-Path $siteRoot $_) -Force } |
     Where-Object { $_.FullName -notlike "$PSScriptRoot*" -and
         ($_.Extension -in @('.html', '.css', '.md', '.txt') -or $_.Name -eq '_headers') }
 foreach ($file in $textFiles) {
