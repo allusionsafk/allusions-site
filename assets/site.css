@@ -587,3 +587,21 @@ figure {
     color: var(--ink);
   }
 }
+
+/* Quire joins the studio register on its own brass-and-ink ground. */
+.plate-quire { --plate-ground: #1a1c22; }
+@media (min-width: 64rem) {
+  .product-quire .product-text { grid-column: 1 / span 4; }
+  .product-quire .plate { grid-column: 5 / -1; }
+}
+.product-page { padding-block: clamp(2.5rem, 7vw, 6rem); }
+.product-page h1 { font-family: var(--display); font-size: clamp(3rem, 9vw, 6rem); line-height: 1; letter-spacing: -.03em; }
+.product-page .lede { max-width: 38rem; margin-block: 1.5rem; }
+.product-page section { margin-top: clamp(2.5rem, 6vw, 5rem); }
+.product-page h2 { font-family: var(--display); font-size: clamp(1.8rem, 4vw, 3rem); line-height: 1.1; margin-bottom: 1rem; }
+.product-page p, .product-page ul { max-width: 70ch; margin-block: 1rem; }
+.product-page .links { display: flex; flex-wrap: wrap; gap: 0 1.5rem; }
+.product-page .links a { display: inline-flex; align-items: center; min-height: 44px; }
+.product-page figure { margin: 2rem 0; }
+.product-page img { width: 100%; height: auto; }
+.product-page figcaption { margin-top: .75rem; max-width: 75ch; color: var(--muted); font-size: .9375rem; }
