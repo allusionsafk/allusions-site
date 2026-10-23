@@ -368,6 +368,8 @@ figure {
   width: 100%;
   padding: clamp(0.75rem, 2.4vw, 2rem);
   background: var(--plate-ground);
+  /* Native alt text stays readable when a capture is unavailable; no JS needed. */
+  color: var(--plate-ink, var(--ink));
 }
 
 .plate figcaption {
@@ -391,8 +393,8 @@ figure {
 }
 
 .plate-afk { --plate-ground: var(--ground-afk); }
-.plate-demimedia { --plate-ground: var(--ground-demimedia); }
-.plate-valclips { --plate-ground: var(--ground-valclips); }
+.plate-demimedia { --plate-ground: var(--ground-demimedia); --plate-ink: var(--night-ink); }
+.plate-valclips { --plate-ground: var(--ground-valclips); --plate-ink: var(--night-ink); }
 
 @media (min-width: 64rem) {
   .product {
@@ -589,7 +591,7 @@ figure {
 }
 
 /* Quire joins the studio register on its own brass-and-ink ground. */
-.plate-quire { --plate-ground: #1a1c22; }
+.plate-quire { --plate-ground: #1a1c22; --plate-ink: var(--night-ink); }
 @media (min-width: 64rem) {
   .product-quire .product-text { grid-column: 1 / span 4; }
   .product-quire .plate { grid-column: 5 / -1; }

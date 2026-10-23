@@ -16,7 +16,23 @@ Static production candidate for the ALLUSIONS portfolio and its product pages.
 
 ## Local preview
 
-Serve the repository root with any static file server, then open `index.html` through that local origin. Direct file access is not representative because the production CSP and root-relative 404 links assume HTTP hosting.
+From the repository root with Node.js 24:
+
+```sh
+npm run preview
+```
+
+Open `http://127.0.0.1:4173/` or `http://127.0.0.1:4173/quire/`. Stop with Ctrl+C; use `npm run preview -- --port 4320` if that port is occupied. This dependency-free server binds only to loopback, serves the public static routes with the shared security headers, disables caching and returns the real 404 page for unavailable routes. It does not run the `/ai/` proxy Function.
+
+Use HTTP for review. Double-clicking `index.html` opens a `file://` URL, where `/quire/captures/...` resolves against the drive root instead of this checkout. The production root-relative image, navigation and stylesheet paths are intentional; changing them to suit file access can break nested routes.
+
+For Cloudflare Pages routing and Functions, use an approved local Wrangler 4 installation (qualified with 4.151.3):
+
+```sh
+wrangler pages dev . --ip 127.0.0.1 --port 8788 --compatibility-date 2026-10-22
+```
+
+This is a local runtime preview, not a deployment. It honors `_headers` and runs the `/ai/` Function, which contacts the existing AFK Worker when requested. No Cloudflare account change or production publication is part of either preview command. See [Cloudflare's local development instructions](https://developers.cloudflare.com/pages/functions/local-development/).
 
 ## Verification
 
