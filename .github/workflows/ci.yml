@@ -22,5 +22,7 @@ jobs:
       - name: Verify content, assets and security contracts
         shell: pwsh
         run: ./tests/site-contract.ps1
+      - name: Install local runtime test tooling without lifecycle scripts
+        run: npm ci --ignore-scripts
       - name: Verify AFK proxy routing and download contracts
-        run: node --test tests/ai-proxy.test.mjs
+        run: npm test
