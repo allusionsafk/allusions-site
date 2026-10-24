@@ -11,7 +11,7 @@ Static production candidate for the ALLUSIONS portfolio and its product pages.
 - self-hosted Bricolage Grotesque and IBM Plex Mono font files, with their upstream SIL Open Font License 1.1 notices bundled alongside them;
 - deployment headers in `_headers`, including a default-deny Content Security Policy;
 - product images in `assets/captures/` are real application screenshots, each listed with its build, date and edits in `assets/captures/PROVENANCE.md`; the contract test fails if a capture lacks a provenance entry or a build ID in its caption.
-- Quire release captures have separate provenance in `quire/captures/PROVENANCE.md`;
+- Quire release captures and the separately captioned, unchanged owner-supplied Home preview have provenance in `quire/captures/PROVENANCE.md`; the preview's exact build is unverified;
 - `products/quire.json` is a verified release snapshot shared by schema with the independent Quire site. Its private repository requires GitHub access; no anonymous download or dedicated website domain is claimed.
 
 ## Local preview

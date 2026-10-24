@@ -4,7 +4,7 @@ import { extname, isAbsolute, join, relative, sep } from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 
 const sourceRoot = fileURLToPath(new URL('../', import.meta.url));
-const mime = { '.html': 'text/html; charset=utf-8', '.css': 'text/css; charset=utf-8', '.json': 'application/json', '.svg': 'image/svg+xml', '.webp': 'image/webp', '.woff2': 'font/woff2', '.txt': 'text/plain; charset=utf-8' };
+const mime = { '.html': 'text/html; charset=utf-8', '.css': 'text/css; charset=utf-8', '.json': 'application/json', '.svg': 'image/svg+xml', '.webp': 'image/webp', '.png': 'image/png', '.woff2': 'font/woff2', '.txt': 'text/plain; charset=utf-8' };
 const isPublic = path => !path.split('/').some(part => part.startsWith('.')) && (path === '/' || /^\/(?:index\.html|404\.html|robots\.txt|products\/quire\.json|(?:assets|demimedia|valclips|quire)(?:\/.*)?)$/.test(path));
 
 // Static, loopback-only preview. Use Wrangler Pages dev to exercise /ai/ Functions.

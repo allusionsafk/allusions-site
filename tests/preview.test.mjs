@@ -20,6 +20,7 @@ test('HTTP preview serves real root, nested Quire routes, assets and production 
   for (const [route, file, type] of [
     ['/', 'index.html', 'text/html'], ['/quire/', 'quire/index.html', 'text/html'],
     ['/quire/captures/quire-book-800.webp', 'quire/captures/quire-book-800.webp', 'image/webp'],
+    ['/quire/captures/quire-home-owner-preview.png', 'quire/captures/quire-home-owner-preview.png', 'image/png'],
     ['/assets/site.css', 'assets/site.css', 'text/css'], ['/products/quire.json', 'products/quire.json', 'application/json'],
   ]) {
     const response = await fetchPreview(origin + route);
