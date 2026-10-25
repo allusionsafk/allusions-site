@@ -34,7 +34,7 @@
     "status": "verified-snapshot"
   },
   "limitations": [
-    "GitHub repository access is required; public downloads are pending.",
+    "The pinned v1.0.0 source-repository release requires authorized GitHub access.",
     "Printer-driver job acceptance has been tested; physical printing and binding results have not been verified.",
     "EPUB typesetting requires Microsoft Edge WebView2 Runtime.",
     "No macOS, Linux, ARM, or universal printer compatibility is claimed."

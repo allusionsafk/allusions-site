@@ -5,7 +5,7 @@ Static production candidate for the ALLUSIONS portfolio and its product pages.
 ## Architecture
 
 - semantic HTML and CSS only;
-- no client JavaScript, frontend build step, analytics, or remote assets;
+- no client JavaScript, analytics, or remote assets; a small public-file staging command excludes development sources;
 - Node.js 24 development tooling runs tests without adding a client bundle;
 - a Cloudflare Pages Function at `/ai/` proxies the existing AFK AI Worker, preserving its download integrity checks and rewriting local links and redirects under `/ai/`;
 - self-hosted Bricolage Grotesque and IBM Plex Mono font files, with their upstream SIL Open Font License 1.1 notices bundled alongside them;
@@ -26,10 +26,18 @@ Open `http://127.0.0.1:4173/` or `http://127.0.0.1:4173/quire/`. Stop with Ctrl+
 
 Use HTTP for review. Double-clicking `index.html` opens a `file://` URL, where `/quire/captures/...` resolves against the drive root instead of this checkout. The production root-relative image, navigation and stylesheet paths are intentional; changing them to suit file access can break nested routes.
 
-For Cloudflare Pages routing and Functions, use an approved local Wrangler 4 installation (qualified with 4.151.3):
+Prepare a **new** public asset folder before Pages review. Existing output folders are refused; no files are cleaned or overwritten:
 
 ```sh
-wrangler pages dev . --ip 127.0.0.1 --port 8788 --compatibility-date 2026-10-22
+npm run build
+```
+
+The default `.preview-dist/` contains only allowlisted product assets and `_headers`; it excludes `commerce/`, `growth/`, scripts, tests, dependencies and private development state. Rebuild into a different new folder with `npm run build -- NEW_FOLDER`. Do not configure a root-directory production upload: the prepared asset directory is the candidate. Updating Cloudflare build settings or deploying still requires approval.
+
+For Cloudflare Pages routing and Functions, run from this project root with an approved local Wrangler 4 installation (qualified with 4.151.3):
+
+```sh
+wrangler pages dev .preview-dist --ip 127.0.0.1 --port 8788 --compatibility-date 2026-10-22
 ```
 
 This is a local runtime preview, not a deployment. It honors `_headers` and runs the `/ai/` Function, which contacts the existing AFK Worker when requested. No Cloudflare account change or production publication is part of either preview command. See [Cloudflare's local development instructions](https://developers.cloudflare.com/pages/functions/local-development/).
@@ -63,3 +71,7 @@ The verifier compares exact HTML bytes on four product routes, requires HTTP 200
 GitHub Actions runs these checks without deployment credentials. Refresh the Quire snapshot from authenticated GitHub release metadata and downloaded-asset SHA256 verification. Configure a dedicated site URL only after hosting ownership and deployment approval are established.
 
 Product sites remain authoritative for exact release and download information. Re-check every project destination and status before public deployment.
+
+## Commercial development, off by default
+
+The [mock commerce contract laboratory](commerce/README.md) and [draft growth evidence pack](growth/COMMERCIAL-READINESS.md) are development material. `npm run commerce:demo` makes no network requests, stores no customer data and serves only an original text fixture. `npm run growth:assets -- NEW_FOLDER` prepares original vector/HTML storyboards and authentic capture copies for review. Neither publishes content, opens checkout, activates tracking or changes a product's licence/release. Both are excluded from the public asset build.
