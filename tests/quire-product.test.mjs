@@ -9,7 +9,14 @@ test('Quire release snapshot preserves exact asset identity and explicit access 
   assert.equal(record.schemaVersion, 1);
   assert.equal(record.id, 'quire');
   assert.equal(record.repositoryVisibility, 'private');
-  assert.equal(record.release.access, 'github-authenticated');
+  assert.equal(record.release.access, 'public-download');
+  assert.equal(record.repositoryUrl, 'https://github.com/allusionsafk/quire');
+  assert.equal(record.release.version, '1.1.0');
+  assert.equal(record.release.publishedAt, '2026-10-25');
+  assert.equal(record.release.url, 'https://github.com/allusionsafk/quire-download/releases/tag/v1.1.0');
+  assert.equal(record.release.asset.url, 'https://github.com/allusionsafk/quire-download/releases/download/v1.1.0/Quire.exe');
+  assert.equal(record.release.asset.size, 77868455);
+  assert.equal(record.release.asset.sha256, 'c475513aa80b263f5780240a34157cda049ec2d734b7b67b24475f4479564a6e');
   assert.equal(record.release.tag, `v${record.release.version}`);
   assert.equal(record.release.asset.name, 'Quire.exe');
   assert.equal(new URL(record.release.asset.url).origin, 'https://github.com');
@@ -17,13 +24,20 @@ test('Quire release snapshot preserves exact asset identity and explicit access 
   assert.ok(Number.isSafeInteger(record.release.asset.size) && record.release.asset.size > 0);
   assert.ok(page.includes(record.release.version) && page.includes(record.release.url));
   assert.match(page, /private|access required/);
+  assert.ok(page.includes(record.release.asset.url));
+  assert.ok(page.includes(record.release.asset.sha256));
+  assert.ok(page.includes(record.release.asset.size.toLocaleString('en-US')));
+  assert.match(page, /publicly downloadable/);
+  assert.doesNotMatch(page, /does not provide an anonymous public download|release and executable require GitHub/);
   assert.equal(record.websiteUrl, null);
   assert.match(page, /public address has not been assigned/);
 });
 test('Quire showcases only existing captures with dimensions, alt text and provenance', async () => {
   const provenance = await readFile(new URL('../quire/captures/PROVENANCE.md', import.meta.url), 'utf8');
   assert.match(provenance, /7fce147/);
-  assert.ok(provenance.includes(record.release.asset.sha256));
+  assert.ok(provenance.includes('ab45bf1fdb3db5342e522670f5f4fcbd1fec52ea13cc4797a1cde35640d461cf'));
+  assert.match(page, /screenshots above show v1\.0\.0/);
+  assert.doesNotMatch(page, /(?:genuine Quire|Released Quire) 1\.1\.0/);
   const images = [...page.matchAll(/<img\b[^>]*src="([^"]+)"[^>]*>/g)];
   assert.equal(images.length, 3);
   for (const [tag, source] of images) {

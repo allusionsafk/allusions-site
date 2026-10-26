@@ -61,7 +61,7 @@ if (Test-Path -LiteralPath $indexPath) {
     Assert-True ($html -match 'href="/ai/"') 'AFK destination must be its /ai/ route'
     Assert-True ($html -match 'href="/demimedia/"') 'DemiMedia destination must be its product page'
     Assert-True ($html -match 'href="/valclips/"') 'ValClips destination must be its product page'
-    Assert-True ($html -match 'href="/quire/"' -and $html -match 'GitHub access required') 'Quire destination and private-release access must be explicit'
+    Assert-True ($html -match 'href="/quire/"' -and $html -match 'Version <span class="machine">1\.1\.0</span> · public download') 'Quire destination and approved public release must be explicit'
     Assert-True ($html -notmatch 'github\.com/allusionsafk/valclips') 'The private ValClips repository must not be linked'
     Assert-True ($html -notmatch 'Adaptive Media|Demi Player|Allusions — Independent software studio') 'Stale public identity text remains in index.html'
     Assert-True ($html -notmatch '(?i)friend beta') 'Retired Friend Beta terminology must not appear'

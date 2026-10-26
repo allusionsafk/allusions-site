@@ -7,16 +7,16 @@
   "repositoryVisibility": "private",
   "websiteUrl": null,
   "release": {
-    "version": "1.0.0",
-    "tag": "v1.0.0",
-    "publishedAt": "2026-10-22",
-    "url": "https://github.com/allusionsafk/quire/releases/tag/v1.0.0",
-    "access": "github-authenticated",
+    "version": "1.1.0",
+    "tag": "v1.1.0",
+    "publishedAt": "2026-10-25",
+    "url": "https://github.com/allusionsafk/quire-download/releases/tag/v1.1.0",
+    "access": "public-download",
     "asset": {
       "name": "Quire.exe",
-      "url": "https://github.com/allusionsafk/quire/releases/download/v1.0.0/Quire.exe",
-      "size": 77773966,
-      "sha256": "ab45bf1fdb3db5342e522670f5f4fcbd1fec52ea13cc4797a1cde35640d461cf"
+      "url": "https://github.com/allusionsafk/quire-download/releases/download/v1.1.0/Quire.exe",
+      "size": 77868455,
+      "sha256": "c475513aa80b263f5780240a34157cda049ec2d734b7b67b24475f4479564a6e"
     }
   },
   "requirements": {
@@ -29,12 +29,12 @@
     "epubRuntime": "Microsoft Edge WebView2 Runtime; included with Windows 11"
   },
   "verification": {
-    "checkedAt": "2026-10-22",
-    "source": "authenticated-github-release-and-downloaded-asset",
+    "checkedAt": "2026-10-26",
+    "source": "anonymous-github-release-and-downloaded-asset",
     "status": "verified-snapshot"
   },
   "limitations": [
-    "The pinned v1.0.0 source-repository release requires authorized GitHub access.",
+    "The executable is publicly downloadable; the application source repository remains private.",
     "Printer-driver job acceptance has been tested; physical printing and binding results have not been verified.",
     "EPUB typesetting requires Microsoft Edge WebView2 Runtime.",
     "No macOS, Linux, ARM, or universal printer compatibility is claimed."

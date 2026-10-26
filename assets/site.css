@@ -604,6 +604,7 @@ figure {
 .product-page p, .product-page ul { max-width: 70ch; margin-block: 1rem; }
 .product-page .links { display: flex; flex-wrap: wrap; gap: 0 1.5rem; }
 .product-page .links a { display: inline-flex; align-items: center; min-height: 44px; }
+.product-page .release-checksum { white-space: normal; overflow-wrap: anywhere; }
 .product-page figure { margin: 2rem 0; }
 .product-page img { width: 100%; height: auto; }
 .product-page figcaption { margin-top: .75rem; max-width: 75ch; color: var(--muted); font-size: .9375rem; }

@@ -1,6 +1,6 @@
 # Commercial readiness — draft evidence pack
 
-Prepared 24 October 2026 from the owner's three commercial documents and current primary vendor documentation. **No price, merchant account, purchase flow, advertisement, subscriber collection or publication is activated.** Product rights, private release access and physical printing remain separate gates.
+Prepared 24 October 2026 from the owner's three commercial documents and current primary vendor documentation; release-access status updated 26 October. **No price, merchant account, purchase flow, advertisement, subscriber collection or publication is activated.** The owner-approved v1.1.0 executable is publicly downloadable; application source remains private. Product rights, signing and physical printing remain separate gates.
 
 ## Provisional provider decision
 

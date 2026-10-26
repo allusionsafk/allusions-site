@@ -12,7 +12,7 @@ Static production candidate for the ALLUSIONS portfolio and its product pages.
 - deployment headers in `_headers`, including a default-deny Content Security Policy;
 - product images in `assets/captures/` are real application screenshots, each listed with its build, date and edits in `assets/captures/PROVENANCE.md`; the contract test fails if a capture lacks a provenance entry or a build ID in its caption.
 - Quire release captures and the separately captioned, unchanged owner-supplied Home preview have provenance in `quire/captures/PROVENANCE.md`; the preview's exact build is unverified;
-- `products/quire.json` is a verified release snapshot shared by schema with the independent Quire site. Its private repository requires GitHub access; no anonymous download or dedicated website domain is claimed.
+- `products/quire.json` pins the approved, anonymously verified v1.1.0 executable in the public `quire-download` distribution repository. The application source remains private and no dedicated website domain is assigned. Authentic captures retain their v1.0.0 provenance; they do not depict v1.1.0.
 
 ## Local preview
 
@@ -68,7 +68,7 @@ node scripts/verify-deployment.mjs https://allusions.pages.dev
 
 The verifier compares exact HTML bytes on four product routes, requires HTTP 200 and static security headers, rejects redirects, and bounds each response to 2 MiB and 10 seconds. It emits JSON and exits nonzero for drift or unavailable evidence. Passing unit tests are separate from matching deployed source.
 
-GitHub Actions runs these checks without deployment credentials. Refresh the Quire snapshot from authenticated GitHub release metadata and downloaded-asset SHA256 verification. Configure a dedicated site URL only after hosting ownership and deployment approval are established.
+GitHub Actions runs these checks without deployment credentials. The approved Quire snapshot was checked against public release metadata and an anonymous full asset download: 77,868,455 bytes, SHA256 `c475513aa80b263f5780240a34157cda049ec2d734b7b67b24475f4479564a6e`. The executable is unsigned. Further pin changes require owner approval; source access and physical-print qualification remain separate. Configure a dedicated site URL only after hosting ownership and deployment approval are established.
 
 Product sites remain authoritative for exact release and download information. Re-check every project destination and status before public deployment.
 
