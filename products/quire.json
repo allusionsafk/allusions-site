@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "id": "quire",
+  "name": "Quire",
+  "description": "Turn a PDF or EPUB into a book you can print at home and bind by hand.",
+  "repositoryUrl": "https://github.com/allusionsafk/quire",
+  "repositoryVisibility": "private",
+  "websiteUrl": null,
+  "release": {
+    "version": "1.1.0",
+    "tag": "v1.1.0",
+    "publishedAt": "2026-10-25",
+    "url": "https://github.com/allusionsafk/quire-download/releases/tag/v1.1.0",
+    "access": "public-download",
+    "asset": {
+      "name": "Quire.exe",
+      "url": "https://github.com/allusionsafk/quire-download/releases/download/v1.1.0/Quire.exe",
+      "size": 77868455,
+      "sha256": "c475513aa80b263f5780240a34157cda049ec2d734b7b67b24475f4479564a6e"
+    }
+  },
+  "requirements": {
+    "os": [
+      "Windows 10",
+      "Windows 11"
+    ],
+    "architecture": "x64",
+    "dotnetRuntimeBundled": true,
+    "epubRuntime": "Microsoft Edge WebView2 Runtime; included with Windows 11"
+  },
+  "verification": {
+    "checkedAt": "2026-10-26",
+    "source": "anonymous-github-release-and-downloaded-asset",
+    "status": "verified-snapshot"
+  },
+  "limitations": [
+    "The executable is publicly downloadable; the application source repository remains private.",
+    "Printer-driver job acceptance has been tested; physical printing and binding results have not been verified.",
+    "EPUB typesetting requires Microsoft Edge WebView2 Runtime.",
+    "No macOS, Linux, ARM, or universal printer compatibility is claimed."
+  ]
+}

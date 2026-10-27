@@ -1,2 +1,8 @@
 .impeccable/review/
 .impeccable/surfaces/
+node_modules/
+.mf/
+.wrangler/
+.preview-dist/
+artifacts/
+.commerce-local/

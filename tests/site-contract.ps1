@@ -43,7 +43,7 @@ if (Test-Path -LiteralPath $indexPath) {
     Assert-True ($html -match '<title>ALLUSIONS · Independent software</title>') 'Document title is incorrect'
     Assert-True ($html -match '<link\s+rel="canonical"\s+href="https://allusions\.pages\.dev/">') 'Production canonical URL is missing or incorrect'
     Assert-True ($html -match '<meta\s+property="og:title"\s+content="ALLUSIONS · Independent software">') 'Open Graph title is missing or incorrect'
-    Assert-True ($html -match '<meta\s+property="og:description"\s+content="ALLUSIONS is independent software by Jidan: AFK AI for local AI on Windows, DemiMedia for film playback, and ValClips for gameplay stories\.">') 'Open Graph description is missing or incorrect'
+    Assert-True ($html -match '<meta\s+property="og:description"\s+content="ALLUSIONS is independent software by Jidan: AFK AI for local AI on Windows, DemiMedia for film playback, Quire for handmade books, and ValClips for gameplay stories\.">') 'Open Graph description is missing or incorrect'
     Assert-True ($html -match '<meta\s+property="og:url"\s+content="https://allusions\.pages\.dev/">') 'Open Graph URL is missing or incorrect'
     Assert-True ($html -match '<meta\s+name="twitter:card"\s+content="summary">') 'Twitter card metadata is missing or incorrect'
     Assert-True ($html -notmatch '(?:og:image|twitter:image)') 'A social image must not be invented'
@@ -56,11 +56,12 @@ if (Test-Path -LiteralPath $indexPath) {
     Assert-True ($html -match '>GitHub<') 'GitHub navigation label is missing'
     Assert-True ($html -match 'Independent software by Jidan' -and $html -match '@allusionsafk') 'Imprint and handle are missing'
     Assert-True ($html -match '<h1[^>]*>ALLUSIONS</h1>') 'The wordmark must be the page heading'
-    Assert-True ($html -match 'AFK AI' -and $html -match 'DemiMedia' -and $html -match 'ValClips') 'Project register is incomplete'
+    Assert-True ($html -match 'AFK AI' -and $html -match 'DemiMedia' -and $html -match 'Quire' -and $html -match 'ValClips') 'Project register is incomplete'
     Assert-True ($html -match 'Beta · <span class="machine">0\.2\.0-rc1</span> prerelease' -and $html -match 'In development · no release yet' -and $html -match 'Private development · no public download') 'Product statuses are incorrect'
     Assert-True ($html -match 'href="/ai/"') 'AFK destination must be its /ai/ route'
     Assert-True ($html -match 'href="/demimedia/"') 'DemiMedia destination must be its product page'
     Assert-True ($html -match 'href="/valclips/"') 'ValClips destination must be its product page'
+    Assert-True ($html -match 'href="/quire/"' -and $html -match 'Version <span class="machine">1\.1\.0</span> · public download') 'Quire destination and approved public release must be explicit'
     Assert-True ($html -notmatch 'github\.com/allusionsafk/valclips') 'The private ValClips repository must not be linked'
     Assert-True ($html -notmatch 'Adaptive Media|Demi Player|Allusions — Independent software studio') 'Stale public identity text remains in index.html'
     Assert-True ($html -notmatch '(?i)friend beta') 'Retired Friend Beta terminology must not appear'
@@ -72,7 +73,7 @@ if (Test-Path -LiteralPath $indexPath) {
     $provenancePath = Join-Path $siteRoot 'assets/captures/PROVENANCE.md'
     $provenance = if (Test-Path -LiteralPath $provenancePath) { Get-Content -LiteralPath $provenancePath -Raw } else { '' }
     $figures = [regex]::Matches($html, '(?s)<figure[^>]*>.*?</figure>')
-    Assert-True ($figures.Count -eq 3) 'Each product must show exactly one real capture'
+    Assert-True ($figures.Count -eq 4) 'Each product must show exactly one real capture'
     foreach ($figure in $figures) {
         $img = [regex]::Match($figure.Value, '<img[^>]+>').Value
         foreach ($file in [regex]::Matches($figure.Value, 'assets/captures/[a-z-]+\.webp')) {
@@ -150,11 +151,11 @@ foreach ($product in @(@{ Dir = 'demimedia'; Title = 'DemiMedia' }, @{ Dir = 'va
     }
 }
 
-$textFiles = Get-ChildItem -LiteralPath $siteRoot -Recurse -File |
-    Where-Object {
-        $_.FullName -notlike "$PSScriptRoot*" -and
-        ($_.Extension -in @('.html', '.css', '.md', '.txt') -or $_.Name -eq '_headers')
-    }
+$sourcePaths = @(git -C $siteRoot ls-files --cached --others --exclude-standard)
+if ($LASTEXITCODE -ne 0) { throw 'Cannot inventory repository source files.' }
+$textFiles = $sourcePaths | ForEach-Object { Get-Item -LiteralPath (Join-Path $siteRoot $_) -Force } |
+    Where-Object { $_.FullName -notlike "$PSScriptRoot*" -and
+        ($_.Extension -in @('.html', '.css', '.md', '.txt') -or $_.Name -eq '_headers') }
 foreach ($file in $textFiles) {
     $content = Get-Content -LiteralPath $file.FullName -Raw
     Assert-True ($content -notmatch '(?i)(?:C:\\Users\\|/Users/|\.codex|\.claude)') "Private development path leaked in $($file.Name)"

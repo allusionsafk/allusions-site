@@ -10,7 +10,7 @@ Allusions is the maker and umbrella identity for focused software spanning local
 
 ## Audience
 
-People encountering one Allusions product who want to understand the maker behind it, and technically curious visitors evaluating the studio's broader body of work. A first-time visitor should understand what Allusions is, what its three projects do, how mature each one is, and where to go next within twenty seconds.
+People encountering one Allusions product who want to understand the maker behind it, and technically curious visitors evaluating the studio's broader body of work. A first-time visitor should understand what Allusions is, what its four application projects do, how mature each one is, and where to go next within twenty seconds.
 
 ## Product truth
 
@@ -19,6 +19,7 @@ People encountering one Allusions product who want to understand the maker behin
 - DemiMedia's product page lives at /demimedia/ in this repository; it reflects development status with no release, and GitHub remains the engineering authority.
 - ValClips is in private development with no public download or repository; its product page lives at /valclips/ in this repository.
 - The studio site is not itself a product release channel.
+- Quire 1.1.0 is an approved Windows 10/11 x64 download in the public executable-only `quire-download` repository; the application source remains private. Its portfolio page lives at /quire/; the dedicated website is independently maintained in quire-site and awaits an assigned public deployment URL. Verified release captures remain v1.0.0, and the owner-supplied Home preview has an unverified build. Download byte verification does not establish signing, rights or physical-print qualification.
 
 ## Constraints
 
