@@ -6,7 +6,7 @@ import { fileURLToPath, pathToFileURL } from 'node:url';
 
 const source = fileURLToPath(new URL('../', import.meta.url));
 const directories = ['assets', 'demimedia', 'valclips', 'quire'];
-const required = ['index.html', '404.html', 'robots.txt', '_headers', 'products/quire.json'];
+const required = ['index.html', '404.html', 'robots.txt', 'sitemap.xml', '_headers', 'products/quire.json'];
 const extensions = new Set(['.html', '.css', '.svg', '.png', '.webp', '.woff2', '.woff', '.txt', '.ico']);
 
 // Prepare assets only. Wrangler finds the existing /functions directory in the

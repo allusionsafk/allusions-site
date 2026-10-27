@@ -42,6 +42,21 @@ wrangler pages dev .preview-dist --ip 127.0.0.1 --port 8788 --compatibility-date
 
 This is a local runtime preview, not a deployment. It honors `_headers` and runs the `/ai/` Function, which contacts the existing AFK Worker when requested. No Cloudflare account change or production publication is part of either preview command. See [Cloudflare's local development instructions](https://developers.cloudflare.com/pages/functions/local-development/).
 
+### Immutable launch package
+
+From a clean, reviewed commit with Git and `tar` available, prepare a **new external** directory whose parent exists:
+
+```sh
+npm run prepare:launch -- ../../temp/portfolio-launch-candidate
+npm run verify:launch -- ../../temp/portfolio-launch-candidate
+```
+
+This archives the exact current Git commit, avoiding checkout line-ending differences and ignored/untracked files. The new package contains `assets/` (the public allowlist, including the five-route sitemap), the one reviewed `functions/ai/[[path]].js` source, and `launch.json` (source SHA and every artifact file's length/hash). Existing destinations and outputs inside the source repository are refused. Verification reconstructs the expected package from the same clean HEAD; extra, missing, modified, hidden, linked or unexpected empty-directory entries fail. A hash receipt binds bytes to source; it is not a secret scanner or deployment authorization. Review the actual public manifest before approval.
+
+For local Pages review, start Wrangler4 from the **package root** with asset directory `assets`; it discovers the sibling `functions` directory. Upload only `assets` through Wrangler from that package root after explicit approval, never the package root, receipt, source repository, developer tools or commerce lab. Wrangler compiles the Function separately. A static dashboard drag-and-drop is insufficient for the `/ai/` Function. Record the exact compiled Function and post-deployment routes/headers separately. [Functions deployment](https://developers.cloudflare.com/pages/functions/get-started/), [Direct Upload](https://developers.cloudflare.com/pages/how-to/use-direct-upload-with-continuous-integration/).
+
+Both commands are offline preparation/verification. They never merge, deploy, contact Cloudflare or change production settings. A merge can still trigger a connected Git production build; inspect and obtain approval for that effect before integrating PR5 then PR6. The sitemap's `/ai/` URL uses the canonical identity served by the upstream product; upstream Function headers remain authoritative for that route.
+
 ## Verification
 
 On Windows PowerShell:

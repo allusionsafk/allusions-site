@@ -32,7 +32,7 @@ test('public sources cannot export a linked private file', async t => {
   t.after(() => rm(folder, { recursive: true, force: true }));
   const root = join(folder, 'root'); await mkdir(root);
   for (const name of ['assets', 'demimedia', 'valclips', 'quire', 'products']) await mkdir(join(root, name));
-  for (const name of ['index.html', '404.html', 'robots.txt', '_headers', 'products/quire.json']) await writeFile(join(root, name), 'fixture');
+  for (const name of ['index.html', '404.html', 'robots.txt', 'sitemap.xml', '_headers', 'products/quire.json']) await writeFile(join(root, name), 'fixture');
   await mkdir(join(folder, 'private'));
   await writeFile(join(folder, 'private', 'private.txt'), 'not public');
   await symlink(join(folder, 'private'), join(root, 'assets', 'exposed'), process.platform === 'win32' ? 'junction' : 'dir');
@@ -44,7 +44,7 @@ test('a destination ancestor alias cannot write a build inside public source', a
   t.after(() => rm(folder, { recursive: true, force: true }));
   const root = join(folder, 'root'); await mkdir(root);
   for (const name of ['assets', 'demimedia', 'valclips', 'quire', 'products']) await mkdir(join(root, name));
-  for (const name of ['index.html', '404.html', 'robots.txt', '_headers', 'products/quire.json']) await writeFile(join(root, name), 'fixture');
+  for (const name of ['index.html', '404.html', 'robots.txt', 'sitemap.xml', '_headers', 'products/quire.json']) await writeFile(join(root, name), 'fixture');
   const alias = join(folder, 'alias');
   await symlink(root, alias, process.platform === 'win32' ? 'junction' : 'dir');
   await assert.rejects(buildPublic(join(alias, 'assets', 'generated'), root), /separate/);

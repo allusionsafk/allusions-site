@@ -4,6 +4,8 @@
   "type": "module",
   "scripts": {
     "build": "node scripts/build-public.mjs",
+    "prepare:launch": "node scripts/prepare-launch.mjs prepare",
+    "verify:launch": "node scripts/prepare-launch.mjs verify",
     "test:commerce": "node --test tests/commerce.test.mjs",
     "commerce:demo": "node commerce/demo.mjs",
     "growth:assets": "node scripts/build-growth-assets.mjs",
