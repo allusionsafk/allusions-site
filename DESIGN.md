@@ -14,6 +14,7 @@ colors:
   ground-afk: "#eee8dc"
   ground-demimedia: "#080b0d"
   ground-valclips: "#141719"
+  ground-quire: "#2a2116"
 typography:
   display:
     fontFamily: "Bricolage Grotesque, Segoe UI Variable Display, Segoe UI, system-ui, sans-serif"

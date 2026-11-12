@@ -45,6 +45,7 @@
   --ground-afk: #eee8dc;
   --ground-demimedia: #080b0d;
   --ground-valclips: #141719;
+  --ground-quire: #2a2116;
 
   --display: "Bricolage Grotesque", "Segoe UI Variable Display", "Segoe UI", system-ui, sans-serif;
   --text: "Segoe UI Variable Text", "Segoe UI", system-ui, -apple-system, "Helvetica Neue", sans-serif;
@@ -393,6 +394,7 @@ figure {
 .plate-afk { --plate-ground: var(--ground-afk); }
 .plate-demimedia { --plate-ground: var(--ground-demimedia); }
 .plate-valclips { --plate-ground: var(--ground-valclips); }
+.plate-quire { --plate-ground: var(--ground-quire); }
 
 @media (min-width: 64rem) {
   .product {
@@ -424,6 +426,10 @@ figure {
   /* ValClips: the window leads from the left, the words answer on the right. */
   .product-valclips .plate { grid-column: 1 / span 8; grid-row: 1; }
   .product-valclips .product-text { grid-column: 9 / -1; grid-row: 1; }
+
+  /* Quire: words first, the bench with the book on it beside them. */
+  .product-quire .product-text { grid-column: 1 / span 4; }
+  .product-quire .plate { grid-column: 5 / -1; }
 }
 
 /* Short desktop screens: pull the list up so the first product is in view. */
