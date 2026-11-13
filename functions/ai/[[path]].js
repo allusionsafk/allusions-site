@@ -40,8 +40,8 @@ export async function onRequest({ request }) {
   const response = new Response(upstream.body, upstream);
   const location = response.headers.get('location');
   if (location) {
-    const target = new URL(location, UPSTREAM);
-    if (target.origin === UPSTREAM) response.headers.set('location', PREFIX + target.pathname + target.search);
+    const target = new URL(location, upstreamUrl);
+    if (target.origin === UPSTREAM) response.headers.set('location', PREFIX + target.pathname + target.search + target.hash);
   }
 
   if (!(response.headers.get('content-type') || '').includes('text/html')) return response;
