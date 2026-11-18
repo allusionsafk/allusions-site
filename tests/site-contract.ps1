@@ -178,4 +178,5 @@ if ($failures.Count -gt 0) {
     throw "Site contract failed with $($failures.Count) issue(s)."
 }
 
+& (Join-Path $PSScriptRoot 'release-identity-local.ps1')
 Write-Output "Site contract passed: $($requiredFiles.Count) required files and all content/security assertions verified."

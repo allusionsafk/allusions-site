@@ -19,7 +19,7 @@
 .EXAMPLE
   pwsh -File tests/release-identity.ps1
   pwsh -File tests/release-identity.ps1 -HashDownloads
-  pwsh -File tests/release-identity.ps1 -SiteRoot .     # read the Quire/studio pages from this checkout instead of production
+    pwsh -File tests/release-identity.ps1 -SiteRoot .     # require both local pages; AFK and release endpoints remain live
 #>
 param(
     [string]$Origin = 'https://allusions.pages.dev',
@@ -41,7 +41,12 @@ function Compare-Fact([string]$Product, [string]$Check, $Advertised, $Actual) {
 function Get-Page([string]$Path) {
     if ($SiteRoot) {
         $local = Join-Path $SiteRoot (($Path.Trim('/')), 'index.html' -join '/').TrimStart('/')
-        if (Test-Path -LiteralPath $local) { return Get-Content -LiteralPath $local -Raw }
+        if (-not (Test-Path -LiteralPath $local -PathType Leaf)) {
+            throw "Required local page is missing: $local"
+        }
+        $page = Get-Content -LiteralPath $local -Raw
+        if ([string]::IsNullOrWhiteSpace($page)) { throw "Required local page is empty: $local" }
+        return $page
     }
     try { return (Invoke-WebRequest -Uri "$Origin$Path" -TimeoutSec 30).Content } catch { return $null }
 }
@@ -71,11 +76,16 @@ function Get-Sha256Of([string]$Uri) {
 }
 function Match1([string]$Text, [string]$Pattern) { if (-not $Text) { return $null }; $m = [regex]::Match($Text, $Pattern); if ($m.Success) { $m.Groups[1].Value } else { $null } }
 
-$studio = Get-Page '/'
+try {
+    $studio = Get-Page '/'
+    $quirePage = Get-Page '/quire/'
+} catch {
+    Write-Output "Release identity: FAIL — $($_.Exception.Message)"
+    exit 1
+}
 if (-not $studio) { Add-Result 'Studio' 'studio page reachable' 'UNAVAILABLE' "$Origin/ could not be read" }
 
 # ---------------------------------------------------------------- Quire
-$quirePage = Get-Page '/quire/'
 if (-not $quirePage) {
     Add-Result 'Quire' 'product page reachable' 'UNAVAILABLE' "$Origin/quire/ could not be read"
 } else {
