@@ -57,7 +57,19 @@ if (Test-Path -LiteralPath $indexPath) {
     Assert-True ($html -match 'Independent software by Jidan' -and $html -match '@allusionsafk') 'Imprint and handle are missing'
     Assert-True ($html -match '<h1[^>]*>ALLUSIONS</h1>') 'The wordmark must be the page heading'
     Assert-True ($html -match 'AFK AI' -and $html -match 'DemiMedia' -and $html -match 'ValClips' -and $html -match 'Quire') 'Project register is incomplete'
-    Assert-True ($html -match 'Beta · <span class="machine">0\.2\.0-rc1</span> prerelease' -and $html -match 'In development · no release yet' -and $html -match 'Private development · no public download' -and $html -match 'Released · <span class="machine">1\.2\.0</span>') 'Product statuses are incorrect'
+    Assert-True ($html -match 'Beta · <span class="machine">0\.2\.0-rc1</span> prerelease' -and $html -match 'In development · no release yet' -and $html -match 'Private development · no public download' -and $html -match 'Released · <span class="machine">\d+\.\d+\.\d+</span>') 'Product statuses are incorrect'
+    # The Quire page is where a release is recorded; the studio register must repeat its version,
+    # not a literal frozen here (1.2.1 and 1.2.2 shipped while this test still pinned 1.2.0).
+    $quirePagePath = Join-Path $siteRoot 'quire/index.html'
+    if (Test-Path -LiteralPath $quirePagePath) {
+        $quirePage = Get-Content -LiteralPath $quirePagePath -Raw
+        $pageVersion = [regex]::Match($quirePage, 'Released · <span class="machine">(\d+\.\d+\.\d+)</span>').Groups[1].Value
+        $factVersion = [regex]::Match($quirePage, '<dt>Version</dt><dd><span class="machine">(\d+\.\d+\.\d+)</span>').Groups[1].Value
+        $homeVersion = [regex]::Match($html, '(?s)id="qr-title".*?Released · <span class="machine">(\d+\.\d+\.\d+)</span>').Groups[1].Value
+        Assert-True ($pageVersion -and $pageVersion -eq $factVersion) "Quire page disagrees with itself: headline '$pageVersion', download facts '$factVersion'"
+        Assert-True ($homeVersion -eq $pageVersion) "Studio register says Quire '$homeVersion' but the Quire page says '$pageVersion'"
+        Assert-True ($quirePage -match 'href="https://github\.com/allusionsafk/quire-download/releases/latest/download/Quire\.exe"') 'Quire download must use the public quire-download release'
+    }
     Assert-True ($html -match 'href="/ai/"') 'AFK destination must be its /ai/ route'
     Assert-True ($html -match 'href="/demimedia/"') 'DemiMedia destination must be its product page'
     Assert-True ($html -match 'href="/valclips/"') 'ValClips destination must be its product page'
@@ -166,4 +178,5 @@ if ($failures.Count -gt 0) {
     throw "Site contract failed with $($failures.Count) issue(s)."
 }
 
+& (Join-Path $PSScriptRoot 'release-identity-local.ps1')
 Write-Output "Site contract passed: $($requiredFiles.Count) required files and all content/security assertions verified."
