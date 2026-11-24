@@ -40,7 +40,13 @@ export async function onRequest({ request }) {
   const response = new Response(upstream.body, upstream);
   const location = response.headers.get('location');
   if (location) {
-    const target = new URL(location, upstreamUrl);
+    let target;
+    try {
+      target = new URL(location, upstreamUrl);
+    } catch {
+      await response.body?.cancel().catch(() => {});
+      return new Response(null, { status: 502, headers: { 'cache-control': 'no-store' } });
+    }
     if (target.origin === UPSTREAM) response.headers.set('location', PREFIX + target.pathname + target.search + target.hash);
   }
 

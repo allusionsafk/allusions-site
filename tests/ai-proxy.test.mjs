@@ -89,6 +89,19 @@ test('installer HEAD preserves the bodyless response and verified metadata', asy
   assert.equal(response.headers.get('content-length'), '58367121');
 });
 
+for (const method of ['GET', 'HEAD']) {
+  test(`a malformed upstream redirect is an uncached gateway failure for ${method}`, async () => {
+    upstreamResponse(new Response(null, { status: 302, headers: { location: 'https://' } }));
+    const response = await onRequest({
+      request: new Request('https://allusions.pages.dev/ai/docs/start', { method }),
+    });
+    assert.equal(response.status, 502);
+    assert.equal(response.headers.get('location'), null);
+    assert.equal(response.headers.get('cache-control'), 'no-store');
+    if (method === 'HEAD') assert.equal(response.body, null);
+  });
+}
+
 test('a double-slash visitor path cannot select a different upstream origin', async () => {
   globalThis.fetch = async (url) => {
     assert.equal(new URL(url).origin, origin);
