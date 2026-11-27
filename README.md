@@ -32,3 +32,9 @@ node --test tests/ai-proxy.test.mjs
 GitHub Actions runs both checks on pushes and pull requests without deployment credentials. The proxy tests exercise the handler with controlled upstream HTTP responses; Cloudflare's HTMLRewriter still requires runtime qualification before deployment.
 
 Product sites remain authoritative for exact release and download information. Re-check every project destination and status before public deployment.
+
+After a Pages deployment, run `pwsh -NoProfile -File tests/release-pages.ps1`. It checks both
+production hostnames, hashes the public Quire and AFK downloads on each, and checks the AFK
+proxy's redirect, rewritten links, stylesheet, and download headers. It performs read-only
+HTTP requests. A failed check on either host exits 1. If evidence is unavailable and no check
+failed, it exits 2. Exit 0 requires both hosts to pass.
